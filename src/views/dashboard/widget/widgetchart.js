@@ -1,12 +1,62 @@
-import React from 'react'
+import React, {useEffect}  from 'react'
 import {Row,Col} from 'react-bootstrap'
 import Card from '../../../components/Card'
 import Chart from "react-apexcharts"
+import {bindActionCreators} from "redux"
 
 // import CounterUps from '../../../components/counterup'
 import CountUp from 'react-countup';
+// store
+import {NavbarstyleAction, getDirMode, getcustomizerMode, getcustomizerprimaryMode,  getcustomizerinfoMode,  SchemeDirAction, ColorCustomizerAction,  getNavbarStyleMode, getSidebarActiveMode, SidebarActiveStyleAction, getDarkMode, ModeAction,  SidebarColorAction, getSidebarColorMode,  getSidebarTypeMode} from '../../../store/setting/setting'
+import {connect} from "react-redux"
 
-const Widgetchart = () => {
+const mapStateToProps = (state) => {
+   return {
+       darkMode: getDarkMode(state),
+       customizerMode: getcustomizerMode(state),
+       cololrinfomode: getcustomizerinfoMode(state),
+       colorprimarymode: getcustomizerprimaryMode(state),
+       schemeDirMode: getDirMode(state),
+       sidebarcolorMode: getSidebarColorMode(state),
+       sidebarTypeMode: getSidebarTypeMode(state),
+       sidebaractivestyleMode: getSidebarActiveMode(state),
+       navbarstylemode: getNavbarStyleMode(state),
+   };
+}
+const mapDispatchToProps = dispatch => ({
+   ...bindActionCreators(
+       {
+           ModeAction,
+           SchemeDirAction,
+           SidebarColorAction,
+           SidebarActiveStyleAction,
+           NavbarstyleAction,
+           ColorCustomizerAction,
+       },
+       dispatch
+   )
+})
+
+
+
+const Widgetchart = (props) => {
+   useEffect(() => {
+   //   customizer
+   const colorcustomizerMode = sessionStorage.getItem('color-customizer-mode');
+   const colorcustomizerinfoMode = sessionStorage.getItem('colorcustominfo-mode');
+   const colorcustomizerprimaryMode = sessionStorage.getItem('colorcustomprimary-mode');
+   if(colorcustomizerMode !== null && colorcustomizerMode !== undefined){
+       props.ColorCustomizerAction(colorcustomizerMode, colorcustomizerinfoMode, colorcustomizerprimaryMode);
+       document.documentElement.style.setProperty('--bs-info', colorcustomizerinfoMode);
+       
+      
+   }
+   else{
+      props.ColorCustomizerAction(props.customizerMode, props.cololrinfomode, props.colorprimarymode);
+       document.documentElement.style.setProperty('--bs-info', props.cololrinfomode );
+   }
+})
+   
    const chart1 ={
          options : {
          chart: {
@@ -41,7 +91,7 @@ const Widgetchart = () => {
          },
          fill: {
          opacity: 1,
-         colors:['#344ed1', '#b91d12', '#d48918']
+         colors:[props.colorprimarymode, '#b91d12', '#d48918']
          },
          tooltip: {
          y: {
@@ -109,6 +159,7 @@ const Widgetchart = () => {
          }
       const chart3 ={ 
          options : {
+            colors: [props.colorprimarymode],
             chart: {
                
                sparkline: {
@@ -132,10 +183,6 @@ const Widgetchart = () => {
                   opacityTo: 0,
                }
             },
-         
-            
-            colors: ['#344ed1'],
-         
             xaxis: {
                type: 'datetime',
                categories: ["2018-08-19T00:00:00", "2018-09-19T01:30:00", "2018-10-19T02:30:00", "2018-11-19T01:30:00", "2018-12-19T01:30:00"],
@@ -150,6 +197,7 @@ const Widgetchart = () => {
             name: 'series1',
             data: [60, 15, 50, 30, 70]
       }, ],
+
       }  
    const chart4={
       options : {
@@ -196,7 +244,7 @@ const Widgetchart = () => {
       options : {
          colors: ['#b91d12'],
          chart: {
-             id: "chart-4",
+            //  id: "chart-4",
              
              sparkline: {
                  enabled: true
@@ -239,7 +287,7 @@ const Widgetchart = () => {
    const iqchartbox1 ={
       options : {
          
-         colors: ["#344ed1"],
+         colors: [props.colorprimarymode],
          chart: {
          id: "iq-chart-1",   
          sparkline: {
@@ -385,7 +433,7 @@ const Widgetchart = () => {
 
    const servicechart1={
       options : {
-       colors: ["#344ed1"],
+       colors: [props.colorprimarymode],
          chart: {
          id: "service-chart-1",
          sparkline: {
@@ -499,7 +547,7 @@ const Widgetchart = () => {
 
    const ethernetchart1={
       options : {
-       colors: ['#344ed1'],
+       colors: [props.colorprimarymode],
          chart: {
          id: "ethernet-chart-1",
          zoom: {
@@ -927,7 +975,7 @@ const Widgetchart = () => {
                            <h2 className="counter"><CountUp start={35} end={352} duration={3}/></h2>
                         </div>
                         <div className="pt-3">
-                           <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px"  viewBox="0 0 20 20" fill="#344ed1">
+                           <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px"  viewBox="0 0 20 20" fill={props.colorprimarymode}>
                               <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
                            </svg>
                         </div>
@@ -1294,4 +1342,4 @@ const Widgetchart = () => {
    )
 }
 
-export default Widgetchart
+export default connect(mapStateToProps, mapDispatchToProps)(Widgetchart)

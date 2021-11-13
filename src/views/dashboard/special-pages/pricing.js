@@ -55,7 +55,7 @@ const Pricing = () => {
                 <Col md="12">
                     <Row className=" row-cols-1 row-cols-md-2 row-cols-lg-4 mb-3 text-center">
                         <Col>
-                            <Card className=" mb-4 rounded-3 shadow-sm">
+                            <Card className=" mb-4 rounded-3 ">
                                 <Card.Body>
                                     <Card.Title as="h1" className=" pricing-card-title">$0<small className="text-muted fw-light">/mo</small></Card.Title>
                                     <h4 className="my-0 fw-normal mt-3">Free</h4>
@@ -70,7 +70,7 @@ const Pricing = () => {
                             </Card>
                         </Col>
                         <Col>
-                            <Card className=" mb-4 rounded-3 shadow-sm">
+                            <Card className=" mb-4 rounded-3 ">
                                 <Card.Body>
                                     <Card.Title as="h1" className=" pricing-card-title">$15<small className="text-muted fw-light">/mo</small></Card.Title>
                                     <h4 className="my-0 fw-normal mt-3">Pro</h4>
@@ -85,7 +85,7 @@ const Pricing = () => {
                             </Card>
                         </Col>
                         <Col>
-                            <Card className=" mb-4 rounded-3 shadow-sm">
+                            <Card className=" mb-4 rounded-3 ">
                                 <Card.Body>
                                     <Card.Title as="h1" className=" pricing-card-title">$29<small className="text-muted fw-light">/mo</small></Card.Title>
                                     <h4 className="my-0 fw-normal mt-3">Enterprise</h4>
@@ -100,7 +100,7 @@ const Pricing = () => {
                             </Card>
                         </Col>
                         <Col>
-                            <Card className=" mb-4 rounded-3 shadow-sm">
+                            <Card className=" mb-4 rounded-3 ">
                                 <Card.Body>
                                     <Card.Title as="h1" className=" pricing-card-title">$49<small className="text-muted fw-light">/mo</small></Card.Title>
                                     <h4 className="my-0 fw-normal mt-3">Premium</h4>

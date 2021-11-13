@@ -6,7 +6,13 @@ import Card from '../../../components/Card'
 
 import {Link} from 'react-router-dom'
 // img
-import avatars1 from '../../../assets/images/avatars/01.png'
+
+import avatars11 from '../../../assets/images/avatars/01.png'
+import avatars22 from '../../../assets/images/avatars/avtar_1.png'
+import avatars33 from '../../../assets/images/avatars/avtar_2.png'
+import avatars44 from '../../../assets/images/avatars/avtar_3.png'
+import avatars55 from '../../../assets/images/avatars/avtar_4.png'
+import avatars66 from '../../../assets/images/avatars/avtar_5.png'
 import avatars2 from '../../../assets/images/avatars/02.png'
 import avatars3 from '../../../assets/images/avatars/03.png'
 import avatars4 from '../../../assets/images/avatars/04.png'
@@ -45,7 +51,12 @@ const UserProfile =() =>{
                            <div className="d-flex flex-wrap align-items-center justify-content-between">
                               <div className="d-flex flex-wrap align-items-center">
                                  <div className="profile-img position-relative me-3 mb-3 mb-lg-0 profile-logo profile-logo1">
-                                    <Image src={avatars1} className="img-fluid rounded-pill avatar-100" alt="profile-image"/>
+                                    <Image className="theme-color-default-img  img-fluid rounded-pill avatar-100" src={avatars11} alt="profile-pic"/>
+                                    <Image className="theme-color-purple-img img-fluid rounded-pill avatar-100" src={avatars22} alt="profile-pic"/>
+                                    <Image className="theme-color-blue-img img-fluid rounded-pill avatar-100" src={avatars33} alt="profile-pic"/>
+                                    <Image className="theme-color-green-img img-fluid rounded-pill avatar-100" src={avatars55} alt="profile-pic"/>
+                                    <Image className="theme-color-yellow-img img-fluid rounded-pill avatar-100" src={avatars66} alt="profile-pic"/>
+                                    <Image className="theme-color-pink-img img-fluid rounded-pill avatar-100" src={avatars44} alt="profile-pic"/>
                                  </div>
                                  <div className="d-flex flex-wrap align-items-center mb-3 mb-sm-0">
                                     <h4 className="me-2 h4">Austin Robertson</h4>
@@ -483,7 +494,12 @@ const UserProfile =() =>{
                            <Card.Body>
                               <ul className="list-inline m-0 p-0">
                                  <li className="d-flex mb-4 align-items-center">
-                                    <Image src={avatars1} alt="story-img" className="rounded-pill avatar-40"/>
+                                    <Image className="theme-color-default-img  rounded-pill avatar-40" src={avatars11} alt="profile-pic"/>
+                                    <Image className="theme-color-purple-img rounded-pill avatar-40" src={avatars22} alt="profile-pic"/>
+                                    <Image className="theme-color-blue-img rounded-pill avatar-40" src={avatars33} alt="profile-pic"/>
+                                    <Image className="theme-color-green-img rounded-pill avatar-40" src={avatars55} alt="profile-pic"/>
+                                    <Image className="theme-color-yellow-img rounded-pill avatar-40" src={avatars66} alt="profile-pic"/>
+                                    <Image className="theme-color-pink-img rounded-pill avatar-40" src={avatars44} alt="profile-pic"/>
                                     <div className="ms-3 flex-grow-1">
                                        <h6>Paul Molive</h6>
                                        <p className="mb-0">Web Designer</p>
@@ -623,7 +639,12 @@ const UserProfile =() =>{
                            <Card.Body>
                               <div className="text-center">
                                  <div className="user-profile">
-                                    <Image src={avatars1} alt="profile-img" className="rounded-pill avatar-130 img-fluid"/>
+                                    <Image className="theme-color-default-img  rounded-pill avatar-130 img-fluid" src={avatars11} alt="profile-pic"/>
+                                    <Image className="theme-color-purple-img rounded-pill avatar-130 img-fluid" src={avatars22} alt="profile-pic"/>
+                                    <Image className="theme-color-blue-img rounded-pill avatar-130 img-fluid" src={avatars33} alt="profile-pic"/>
+                                    <Image className="theme-color-green-img rounded-pill avatar-130 img-fluid" src={avatars55} alt="profile-pic"/>
+                                    <Image className="theme-color-yellow-img rounded-pill avatar-130 img-fluid" src={avatars66} alt="profile-pic"/>
+                                    <Image className="theme-color-pink-img rounded-pill avatar-130 img-fluid" src={avatars44} alt="profile-pic"/>
                                  </div>
                                  <div className="mt-3">
                                     <h3 className="d-inline-block">Austin Robertson</h3>

@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import { Row,Col,Dropdown,Button} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
+import {bindActionCreators} from "redux"
 //circular
 import Circularprogressbar from '../../components/circularprogressbar.js'
 
@@ -31,11 +32,44 @@ import shapes5 from '../../assets/images/shapes/05.png'
 
 //Count-up
 import CountUp from 'react-countup';
+// store
+import {NavbarstyleAction, getDirMode, getcustomizerMode, getcustomizerprimaryMode,  getcustomizerinfoMode,  SchemeDirAction, ColorCustomizerAction,  getNavbarStyleMode, getSidebarActiveMode, SidebarActiveStyleAction, getDarkMode, ModeAction,  SidebarColorAction, getSidebarColorMode, getSidebarTypeMode} from '../../store/setting/setting'
+import {connect} from "react-redux"
+
   
 // install Swiper modules
 SwiperCore.use([Navigation]);
 
-const Index = () => {
+const mapStateToProps = (state) => {
+    return {
+        darkMode: getDarkMode(state),
+        customizerMode: getcustomizerMode(state),
+        cololrinfomode: getcustomizerinfoMode(state),
+        colorprimarymode: getcustomizerprimaryMode(state),
+        schemeDirMode: getDirMode(state),
+        sidebarcolorMode: getSidebarColorMode(state),
+        sidebarTypeMode: getSidebarTypeMode(state),
+        sidebaractivestyleMode: getSidebarActiveMode(state),
+        navbarstylemode: getNavbarStyleMode(state),
+    };
+}
+const mapDispatchToProps = dispatch => ({
+    ...bindActionCreators(
+        {
+            ModeAction,
+            SchemeDirAction,
+            SidebarColorAction,
+            SidebarActiveStyleAction,
+            NavbarstyleAction,
+            ColorCustomizerAction,
+        },
+        dispatch
+    )
+})
+
+
+
+const Index = (props) => {
     useEffect(() => {
     AOS.init({
         startEvent: 'DOMContentLoaded',
@@ -48,6 +82,22 @@ const Index = () => {
         duration: 700,
         offset: 10
       });
+    //   customizer
+    const colorcustomizerMode = sessionStorage.getItem('color-customizer-mode');
+    const colorcustomizerinfoMode = sessionStorage.getItem('colorcustominfo-mode');
+    const colorcustomizerprimaryMode = sessionStorage.getItem('colorcustomprimary-mode');
+    if(colorcustomizerMode===null){
+        props.ColorCustomizerAction(props.customizerMode, props.cololrinfomode, props.colorprimarymode);
+        document.documentElement.style.setProperty('--bs-info', props.cololrinfomode );
+       
+    }
+    else{
+        props.ColorCustomizerAction(colorcustomizerMode, colorcustomizerinfoMode, colorcustomizerprimaryMode);
+        document.documentElement.style.setProperty('--bs-info', colorcustomizerinfoMode);
+            
+    }
+    
+      
     })
 
     const chart1={
@@ -61,7 +111,7 @@ const Index = () => {
                     enabled: false,
                 }
             },
-            colors: ["#3a57e8", "#4bc7d2"],
+            colors: [props.colorprimarymode, props.cololrinfomode],
             dataLabels: {
                 enabled: false
             },
@@ -112,7 +162,7 @@ const Index = () => {
                     opacityFrom: .4,
                     opacityTo: .1,
                     stops: [0, 50, 80],
-                    colors: ["#3a57e8", "#4bc7d2"]
+                    colors: [props.colorprimarymode, props.cololrinfomode]
                 }
             },
             tooltip: {
@@ -126,11 +176,14 @@ const Index = () => {
             name: 'pipline',
             data: [72, 60, 84, 60, 74, 60, 78]
         }]
+        
+        
     }
+    
   //chart2
     const chart2 ={
         options : {
-        colors: ["#4bc7d2", "#3a57e8"],
+        colors: [props.colorprimarymode, props.cololrinfomode],
         plotOptions: {
             radialBar: {
             hollow: {
@@ -158,7 +211,7 @@ const Index = () => {
                 show:false
                 }
             },
-            colors: ["#3a57e8", "#4bc7d2"],
+            colors: [props.colorprimarymode, props.cololrinfomode],
             plotOptions: {
             bar: {
                 horizontal: false,
@@ -246,7 +299,7 @@ const Index = () => {
                                     <SwiperSlide className="card card-slide" >
                                         <div className="card-body">
                                             <div className="progress-widget" >
-                                                <Circularprogressbar stroke="#3a57e8" width="60px" height="60px" Linecap='rounded' trailstroke='#ddd' strokewidth="4px" style={{width:60, height:60,}} value={90} id="circle-progress-01" >
+                                                <Circularprogressbar stroke={props.colorprimarymode} width="60px" height="60px" Linecap='rounded' trailstroke='#ddd' strokewidth="4px" style={{width:60, height:60,}} value={90} id="circle-progress-01" >
                                                     <svg className="" width="24" height="24px" viewBox="0 0 24 24">
                                                         <path fill="currentColor" d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z" />
                                                     </svg>
@@ -261,7 +314,7 @@ const Index = () => {
                                     <SwiperSlide className=" card card-slide" >
                                         <div className="card-body">
                                             <div className="progress-widget">
-                                                <Circularprogressbar stroke="#4bc7d2" width="60px" height="60px" trailstroke='#ddd' strokewidth="4px"  Linecap='rounded' style={{width:60, height:60,}} value={60} id="circle-progress-02" >
+                                                <Circularprogressbar stroke={props.cololrinfomode} width="60px" height="60px" trailstroke='#ddd' strokewidth="4px"  Linecap='rounded' style={{width:60, height:60,}} value={60} id="circle-progress-02" >
                                                     <svg className="" width="24" height="24" viewBox="0 0 24 24">
                                                         <path fill="currentColor" d="M19,6.41L17.59,5L7,15.59V9H5V19H15V17H8.41L19,6.41Z" />
                                                     </svg>
@@ -276,7 +329,7 @@ const Index = () => {
                                     <SwiperSlide className=" card card-slide" >
                                         <div className="card-body">
                                             <div className="progress-widget">
-                                                <Circularprogressbar stroke="#3a57e8" width="60px" height="60px" trailstroke='#ddd' strokewidth="4px" Linecap='rounded' style={{width:60, height:60,}} value={70} id="circle-progress-03" >
+                                                <Circularprogressbar stroke={props.colorprimarymode} width="60px" height="60px" trailstroke='#ddd' strokewidth="4px" Linecap='rounded' style={{width:60, height:60,}} value={70} id="circle-progress-03" >
                                                     <svg className="" width="24" viewBox="0 0 24 24">
                                                         <path fill="currentColor" d="M19,6.41L17.59,5L7,15.59V9H5V19H15V17H8.41L19,6.41Z" />
                                                     </svg>
@@ -291,7 +344,7 @@ const Index = () => {
                                     <SwiperSlide className=" card card-slide" >
                                         <div className="card-body">
                                             <div className="progress-widget">
-                                                <Circularprogressbar stroke="#4bc7d2" width="60px" height="60px" trailstroke='#ddd' strokewidth="4px" Linecap='rounded' style={{width:60, height:60,}} value={60} id="circle-progress-04" >
+                                                <Circularprogressbar stroke={props.cololrinfomode} width="60px" height="60px" trailstroke='#ddd' strokewidth="4px" Linecap='rounded' style={{width:60, height:60,}} value={60} id="circle-progress-04" >
                                                     <svg className="" width="24px" height="24px" viewBox="0 0 24 24">
                                                             <path fill="currentColor" d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z" />
                                                     </svg>
@@ -306,7 +359,7 @@ const Index = () => {
                                     <SwiperSlide className=" card card-slide" >
                                         <div className="card-body">
                                             <div className="progress-widget">
-                                                <Circularprogressbar stroke="#3a57e8" width="60px" height="60px" trailstroke='#ddd' strokewidth="4px" Linecap='rounded' style={{width:60, height:60,}} value={50} id="circle-progress-05" >
+                                                <Circularprogressbar stroke={props.colorprimarymode} width="60px" height="60px" trailstroke='#ddd' strokewidth="4px" Linecap='rounded' style={{width:60, height:60,}} value={50} id="circle-progress-05" >
                                                 <svg className="" width="24px" height="24px" viewBox="0 0 24 24">
                                                         <path fill="currentColor" d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z" />
                                                     </svg>
@@ -321,7 +374,7 @@ const Index = () => {
                                     <SwiperSlide className=" card card-slide" >
                                         <div className="card-body">
                                             <div className="progress-widget">
-                                                    <Circularprogressbar stroke="#4bc7d2" width="60px" height="60px" trailstroke='#ddd' Linecap='rounded' strokewidth="4px" value={40}  style={{width:60, height:60,}} id="circle-progress-06">
+                                                    <Circularprogressbar stroke={props.cololrinfomode} width="60px" height="60px" trailstroke='#ddd' Linecap='rounded' strokewidth="4px" value={40}  style={{width:60, height:60,}} id="circle-progress-06">
                                                     <svg className="" width="24px" height="24px" viewBox="0 0 24 24">
                                                         <path fill="currentColor" d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z" />
                                                     </svg>
@@ -336,7 +389,7 @@ const Index = () => {
                                     <SwiperSlide className=" card card-slide">
                                         <div className="card-body">
                                             <div className="progress-widget">
-                                                <Circularprogressbar stroke="#3a57e8"  Linecap='rounded' trailstroke='#ddd' strokewidth="4px" width="60px" height="60px" value={30} style={{width:60, height:60,}} id="circle-progress-07" >
+                                                <Circularprogressbar stroke={props.colorprimarymode}  Linecap='rounded' trailstroke='#ddd' strokewidth="4px" width="60px" height="60px" value={30} style={{width:60, height:60,}} id="circle-progress-07" >
                                                     <svg className="" width="24px" height="24px" viewBox="0 0 24 24">
                                                         <path fill="currentColor" d="M5,17.59L15.59,7H9V5H19V15H17V8.41L6.41,19L5,17.59Z" />
                                                     </svg>
@@ -790,4 +843,4 @@ const Index = () => {
         )
     }
 
-export default Index
+export default connect(mapStateToProps, mapDispatchToProps)(Index)

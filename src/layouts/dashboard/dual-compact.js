@@ -12,7 +12,7 @@ import  HeaderStyle4 from  '../../components/partials/dashboard/HeaderStyle/head
 import Footer from '../../components/partials/dashboard/FooterStyle/footer'
 
 // store
-import {NavbarstyleAction, getDirMode, SchemeDirAction,  getNavbarStyleMode, getSidebarActiveMode, SidebarActiveStyleAction, getDarkMode, ModeAction,  SidebarColorAction, getSidebarColorMode, SidebarTypeAction, getSidebarTypeMode} from '../../store/setting/setting'
+import {NavbarstyleAction, getDirMode, SchemeDirAction,  getNavbarStyleMode, getSidebarActiveMode, SidebarActiveStyleAction, getDarkMode, ModeAction,  SidebarColorAction, getSidebarColorMode, getSidebarTypeMode} from '../../store/setting/setting'
 import {connect} from "react-redux"
 
 const mapStateToProps = (state) => {
@@ -31,7 +31,6 @@ const mapDispatchToProps = dispatch => ({
             ModeAction,
             SchemeDirAction,
             SidebarColorAction,
-            SidebarTypeAction,
             SidebarActiveStyleAction,
             NavbarstyleAction,
         },

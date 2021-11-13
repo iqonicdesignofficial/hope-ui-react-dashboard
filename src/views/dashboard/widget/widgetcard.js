@@ -1,7 +1,9 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect} from 'react'
 import {Row,Col,Image,Form,Button,InputGroup,FormControl} from 'react-bootstrap'
 import {Card} from 'react-bootstrap'
 import FsLightbox from 'fslightbox-react';
+
+import {bindActionCreators} from "redux"
 
 import {Link} from 'react-router-dom'
 // img
@@ -19,7 +21,13 @@ import icon8 from '../../../assets/images/icons/08.png'
 import icon6 from '../../../assets/images/icons/06.png'
 import icon7 from '../../../assets/images/icons/07.png'
 
-import avatars1 from '../../../assets/images/avatars/01.png'
+import avatars11 from '../../../assets/images/avatars/01.png'
+import avatars22 from '../../../assets/images/avatars/avtar_1.png'
+import avatars33 from '../../../assets/images/avatars/avtar_2.png'
+import avatars44 from '../../../assets/images/avatars/avtar_3.png'
+import avatars55 from '../../../assets/images/avatars/avtar_4.png'
+import avatars66 from '../../../assets/images/avatars/avtar_5.png'
+
 import avatars2 from '../../../assets/images/avatars/02.png'
 import avatars3 from '../../../assets/images/avatars/03.png'
 import avatars4 from '../../../assets/images/avatars/04.png'
@@ -27,8 +35,57 @@ import avatars5 from '../../../assets/images/avatars/05.png'
 import ShareOffcanvas from '../../../components/partials/components/shareoffcanvas'
 // Circularprogressbar
 import Circularprogressbar from '../../../components/circularprogressbar'
+// store
+import {NavbarstyleAction, getDirMode, getcustomizerMode, getcustomizerprimaryMode,  getcustomizerinfoMode,  SchemeDirAction, ColorCustomizerAction,  getNavbarStyleMode, getSidebarActiveMode, SidebarActiveStyleAction, getDarkMode, ModeAction,  SidebarColorAction, getSidebarColorMode, getSidebarTypeMode} from '../../../store/setting/setting'
+import {connect} from "react-redux"
 
-const Widgetcard = () => {
+const mapStateToProps = (state) => {
+   return {
+       darkMode: getDarkMode(state),
+       customizerMode: getcustomizerMode(state),
+       cololrinfomode: getcustomizerinfoMode(state),
+       colorprimarymode: getcustomizerprimaryMode(state),
+       schemeDirMode: getDirMode(state),
+       sidebarcolorMode: getSidebarColorMode(state),
+       sidebarTypeMode: getSidebarTypeMode(state),
+       sidebaractivestyleMode: getSidebarActiveMode(state),
+       navbarstylemode: getNavbarStyleMode(state),
+   };
+}
+const mapDispatchToProps = dispatch => ({
+   ...bindActionCreators(
+       {
+           ModeAction,
+           SchemeDirAction,
+           SidebarColorAction,
+           SidebarActiveStyleAction,
+           NavbarstyleAction,
+           ColorCustomizerAction,
+       },
+       dispatch
+   )
+})
+
+
+
+const Widgetcard = (props) => {
+    useEffect(() => {
+        //   customizer
+        const colorcustomizerMode = sessionStorage.getItem('color-customizer-mode');
+        const colorcustomizerinfoMode = sessionStorage.getItem('colorcustominfo-mode');
+        const colorcustomizerprimaryMode = sessionStorage.getItem('colorcustomprimary-mode');
+        if(colorcustomizerMode===null){
+            props.ColorCustomizerAction(props.customizerMode, props.cololrinfomode, props.colorprimarymode);
+            document.documentElement.style.setProperty('--bs-info', props.cololrinfomode );
+            console.log("widget1",props.colorprimarymode )
+           
+        }
+        else{
+            props.ColorCustomizerAction(colorcustomizerMode, colorcustomizerinfoMode, colorcustomizerprimaryMode);
+            document.documentElement.style.setProperty('--bs-info', colorcustomizerinfoMode);
+            console.log("widget2",props.colorprimarymode )
+        }
+     })
     const [toggler, setToggler] = useState(false);
     return (
         <>
@@ -66,8 +123,13 @@ const Widgetcard = () => {
                                         </svg>
                                     </div>
                                     <div className="card-profile-progress">
-                                        <Circularprogressbar  stroke="#3a57e8" Linecap='rounded' trailstroke='#ddd' strokewidth="4px" width="100" height="100" value={60} style={{width:'140px', height:'140px',}}>
-                                        <Image src={avatars1}  className="img-fluid rounded-circle card-img" alt="image"/>    
+                                        <Circularprogressbar  stroke={props.colorprimarymode} Linecap='rounded' trailstroke='#ddd' strokewidth="4px" width="100" height="100" value={60} style={{width:'140px', height:'140px',}}>
+                                        <Image className="theme-color-default-img  img-fluid rounded-circle card-img" src={avatars11} alt="profile-pic"/>
+                                        <Image className="theme-color-purple-img img-fluid rounded-circle card-img" src={avatars22} alt="profile-pic"/>
+                                        <Image className="theme-color-blue-img img-fluid rounded-circle card-img" src={avatars33} alt="profile-pic"/>
+                                        <Image className="theme-color-green-img img-fluid rounded-circle card-img" src={avatars55} alt="profile-pic"/>
+                                        <Image className="theme-color-yellow-img img-fluid rounded-circle card-img" src={avatars66} alt="profile-pic"/>
+                                        <Image className="theme-color-pink-img img-fluid rounded-circle card-img" src={avatars44} alt="profile-pic"/>    
                                         </Circularprogressbar>
                                     </div>
                                     <div className="mt-3 text-center text-black-50">
@@ -379,7 +441,12 @@ const Widgetcard = () => {
                         <Card.Body>
                             <div className="twit-feed">
                                 <div className="d-flex align-items-center mb-4">
-                                    <Image className="rounded-pill img-fluid avatar-60 me-3" src={avatars1} alt=""/>
+                                    <Image className="theme-color-default-img rounded-pill img-fluid avatar-60 me-3" src={avatars11} alt="profile-pic"/>
+                                    <Image className="theme-color-purple-img rounded-pill img-fluid avatar-60 me-3" src={avatars22} alt="profile-pic"/>
+                                    <Image className="theme-color-blue-img rounded-pill img-fluid avatar-60 me-3" src={avatars33} alt="profile-pic"/>
+                                    <Image className="theme-color-green-img rounded-pill img-fluid avatar-60 me-3" src={avatars55} alt="profile-pic"/>
+                                    <Image className="theme-color-yellow-img rounded-pill img-fluid avatar-60 me-3" src={avatars66} alt="profile-pic"/>
+                                    <Image className="theme-color-pink-img rounded-pill img-fluid avatar-60 me-3" src={avatars44} alt="profile-pic"/>
                                     <div className="media-support-info">
                                     <h6 className="mb-0">Anna Sthesia</h6>
                                     <p className="mb-0">@anna59 
@@ -581,4 +648,4 @@ const Widgetcard = () => {
     )
 }
 
-export default Widgetcard
+export default connect(mapStateToProps, mapDispatchToProps)(Widgetcard)

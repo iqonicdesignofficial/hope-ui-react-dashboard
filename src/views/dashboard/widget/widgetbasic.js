@@ -7,7 +7,12 @@ import Progress from '../../../components/progress.js'
 
 import {Link} from 'react-router-dom'
 // img
-import avatars1 from '../../../assets/images/avatars/01.png'
+import avatars11 from '../../../assets/images/avatars/01.png'
+import avatars22 from '../../../assets/images/avatars/avtar_1.png'
+import avatars33 from '../../../assets/images/avatars/avtar_2.png'
+import avatars44 from '../../../assets/images/avatars/avtar_3.png'
+import avatars55 from '../../../assets/images/avatars/avtar_4.png'
+import avatars66 from '../../../assets/images/avatars/avtar_5.png'
 
 //Count-up
 import CountUp from 'react-countup';
@@ -693,7 +698,12 @@ const Widgetbasic = () => {
                   <Card>
                      <Card.Body>
                         <div className="border-bottom text-center pb-3">
-                           <Image src={avatars1} alt="profile" className="img-fluid avatar-80 mb-4"/>
+                           <Image className="theme-color-default-img  img-fluid avatar-80 mb-4" src={avatars11} alt="profile-pic"/>
+                           <Image className="theme-color-purple-img img-fluid avatar-80 mb-4" src={avatars22} alt="profile-pic"/>
+                           <Image className="theme-color-blue-img img-fluid avatar-80 mb-4" src={avatars33} alt="profile-pic"/>
+                           <Image className="theme-color-green-img img-fluid avatar-80 mb-4" src={avatars55} alt="profile-pic"/>
+                           <Image className="theme-color-yellow-img img-fluid avatar-80 mb-4" src={avatars66} alt="profile-pic"/>
+                           <Image className="theme-color-pink-img img-fluid avatar-80 mb-4" src={avatars44} alt="profile-pic"/>
                            <div>
                               <h5 className="mb-3">Bini Jets</h5>
                            </div>

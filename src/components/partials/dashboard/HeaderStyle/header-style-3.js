@@ -17,6 +17,11 @@ import shapes3 from '../../../../assets/images/shapes/03.png'
 import shapes4 from '../../../../assets/images/shapes/04.png'
 import shapes5 from '../../../../assets/images/shapes/05.png'
 import avatars1 from '../../../../assets/images/avatars/01.png'
+import avatars2 from '../../../../assets/images/avatars/avtar_1.png'
+import avatars3 from '../../../../assets/images/avatars/avtar_2.png'
+import avatars4 from '../../../../assets/images/avatars/avtar_3.png'
+import avatars5 from '../../../../assets/images/avatars/avtar_4.png'
+import avatars6 from '../../../../assets/images/avatars/avtar_5.png'
 
 // logo
 import Logo from '../../components/logo'
@@ -219,7 +224,12 @@ const HeaderStyle3 = () => {
                                 </Dropdown>
                                 <Dropdown as="li" className="nav-item">
                                     <Dropdown.Toggle as={CustomToggle} variant=" nav-link py-0 d-flex align-items-center" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        <img src={avatars1} alt="User-Profile" className="img-fluid avatar avatar-50 avatar-rounded"/>
+                                        <img src={avatars1} alt="User-Profile" className="theme-color-default-img img-fluid avatar avatar-50 avatar-rounded"/>
+                                        <img src={avatars2} alt="User-Profile" className="theme-color-purple-img img-fluid avatar avatar-50 avatar-rounded"/>
+                                        <img src={avatars3} alt="User-Profile" className="theme-color-blue-img img-fluid avatar avatar-50 avatar-rounded"/>
+                                        <img src={avatars5} alt="User-Profile" className="theme-color-green-img img-fluid avatar avatar-50 avatar-rounded"/>
+                                        <img src={avatars6}alt="User-Profile" className="theme-color-yellow-img img-fluid avatar avatar-50 avatar-rounded"/>
+                                        <img src={avatars4} alt="User-Profile" className="theme-color-pink-img img-fluid avatar avatar-50 avatar-rounded"/>
                                         <div className="caption ms-3 d-none d-md-block ">
                                             <h6 className="mb-0 caption-title">Austin Robertson</h6>
                                             <p className="mb-0 caption-sub-title">Marketing Administrator</p>

@@ -1,10 +1,14 @@
 const initstate={
     scheme: 'light',
+    colorcustomizer: 'default',
+    colorinfo: '#4bc7d2',
+    colorprimary:'#3a57e8',
     schemeDir: 'ltr',
     sidebarcolor: 'white',
     sidebarType: {mini:"", hover:"", boxed:""} ,
     sidebarActiveStyle: 'roundedAllSide',
     navbarstyle : 'sticky'
+
     
 }
 
@@ -31,7 +35,62 @@ export const ModeAction = (value) => {
     return {type: 'DARKMODE', value}
 }
 
-//Acton for SchemeDirection
+// Action for Colorcustomizer
+export const ColorCustomizerAction = (value, info, primary) => {
+
+    sessionStorage.setItem('color-customizer-mode', value)
+    sessionStorage.setItem('colorcustominfo-mode', info)
+    sessionStorage.setItem('colorcustomprimary-mode', primary)
+    if( value === 'theme-color-blue')
+    {
+        document.body.classList.add('theme-color-blue')
+        document.body.classList.remove('theme-color-gray')
+        document.body.classList.remove('theme-color-red')
+        document.body.classList.remove('theme-color-yellow')
+        document.body.classList.remove('theme-color-pink')
+    }
+    else if(value === 'theme-color-gray')
+    {
+        document.body.classList.remove('theme-color-blue')
+        document.body.classList.add('theme-color-gray')
+        document.body.classList.remove('theme-color-red')
+        document.body.classList.remove('theme-color-yellow')
+        document.body.classList.remove('theme-color-pink')
+    }
+    else if(value === 'theme-color-red')
+    {
+        document.body.classList.add('theme-color-red')
+        document.body.classList.remove('theme-color-gray')
+        document.body.classList.remove('theme-color-blue')
+        document.body.classList.remove('theme-color-yellow')
+        document.body.classList.remove('theme-color-pink')
+    }
+    else if(value === 'theme-color-yellow')
+    {
+        document.body.classList.add('theme-color-yellow')
+        document.body.classList.remove('theme-color-gray')
+        document.body.classList.remove('theme-color-red')
+        document.body.classList.remove('theme-color-blue')
+        document.body.classList.remove('theme-color-pink')
+    }
+    else if(value === 'theme-color-pink')
+    {
+        document.body.classList.add('theme-color-pink')
+        document.body.classList.remove('theme-color-gray')
+        document.body.classList.remove('theme-color-red')
+        document.body.classList.remove('theme-color-yellow')
+        document.body.classList.remove('theme-color-blue')
+    }
+    else{
+        document.body.classList.remove('theme-color-pink')
+        document.body.classList.remove('theme-color-gray')
+        document.body.classList.remove('theme-color-red')
+        document.body.classList.remove('theme-color-yellow')
+        document.body.classList.remove('theme-color-blue')
+    }
+    return {type: 'COLORCUSTOMIZER', value, info, primary }
+}
+//Action for SchemeDirection
 export const SchemeDirAction = (value) => {
     sessionStorage.setItem('rtl-mode', value)
     if (value === 'rtl') {
@@ -75,61 +134,7 @@ export const SidebarColorAction = (value) => {
     return {type: 'SIDEBARCOLORMODE', value}
     }
 
-    // Action for sidebartypeaction
-
-export const SidebarTypeAction = (value) => {
-    // var sidebart = [];
-    // sidebart.push(value)
-    // // sessionStorage.setItem("sidebartype-mode", JSON.stringify(sidebart)); 
-    // if (value === 'mini') {
-    //  sessionStorage.setItem("sidebartype-mode", JSON.stringify(sidebart)); 
-    //     const sidebarTypes = document.querySelectorAll('[data-value="sidebar-mini"]')
-    //     Array.from(sidebarTypes, (sidebarType) => {
-    //         if (sidebarType.classList.contains('active')) {
-    //             sidebarType.classList.remove('active')
-    //            return document.querySelector('.sidebar-default').classList.remove("sidebar-mini")
-    //         } 
-    //         else {
-    //             sidebarType.classList.add('active')
-    //             return document.querySelector('.sidebar-default').classList.add("sidebar-mini")
-    //         }
-    //     })
-    //     }
-        
-        
-    // else if(value === 'hover') {
-    //     // sessionStorage.setItem('sidebartypehover-mode', value)
-    //     const sidebarTypes = document.querySelectorAll('[data-value="sidebar-hover"]')
-    //     Array.from(sidebarTypes, (sidebarType) => {
-    //         if (sidebarType.classList.contains('active')) {
-    //             sidebarType.classList.remove('active')
-    //             document.querySelector('.sidebar-default').classList.remove("sidebar-hover")
-    //            return document.querySelector('.sidebar-default').classList.remove("sidebar-mini")
-    //         } else {
-    //             sidebarType.classList.add('active')
-    //             document.querySelector('.sidebar-default').classList.add("sidebar-hover")
-    //           return  document.querySelector('.sidebar-default').classList.add("sidebar-mini")
-    //         }
-    //     })
-    //     }
-    //     else{
-    //         // sessionStorage.setItem('sidebartypeboxed-mode', value)
-    //         const sidebarTypes = document.querySelectorAll('[data-value="sidebar-boxed"]')
-    //         Array.from(sidebarTypes, (sidebarType) => {
-    //             if (sidebarType.classList.contains('active')) {
-    //                 sidebarType.classList.remove('active')
-    //                 return  document.querySelector('.sidebar-default').classList.remove("sidebar-boxed")
-    //             } else {
-    //                 sidebarType.classList.add('active')
-    //             return    document.querySelector('.sidebar-default').classList.add("sidebar-boxed")
-    //             }
-    //         })
-    //     }
-
-        
-    // return {type: 'SIDEBARTYPEMODE', value}
-}
-
+// Action for sidebartypeaction
 export const SidebarminiTypeAction = (value) => {
     sessionStorage.setItem("sidebarminitype-mode", value)
     return {type: 'SIDEBARMINITYPEMODE', value}
@@ -220,6 +225,12 @@ const Mode = (state = initstate,action) =>{
             return Object.assign({}, state, {
                 scheme: action.value
             })
+        case 'COLORCUSTOMIZER':
+            return Object.assign({}, state, {
+                colorcustomizer: action.value,
+                colorinfo: action.info,
+                colorprimary: action.primary,
+            })
         case 'SCHEMEDIRMODE':
             return Object.assign({}, state, {
                 schemeDir: action.value
@@ -259,6 +270,9 @@ const Mode = (state = initstate,action) =>{
 }
 // Selectores
 export const getDarkMode = (state) => state.mode.scheme;
+export const getcustomizerMode = (state) => state.mode.colorcustomizer;
+export const getcustomizerinfoMode = (state) => state.mode.colorinfo;
+export const getcustomizerprimaryMode = (state) => state.mode.colorprimary;
 export const getDirMode = (state) => state.mode.schemeDir;
 export const getSidebarColorMode = (state) => state.mode.sidebarcolor;
 export const getSidebarTypeMode = (state) => state.mode.sidebarType;
