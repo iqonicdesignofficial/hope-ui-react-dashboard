@@ -38,6 +38,8 @@ import Kanban from '../views/dashboard/special-pages/kanban';
 import Pricing from '../views/dashboard/special-pages/pricing';
 import Timeline from '../views/dashboard/special-pages/timeline';
 import Calender from '../views/dashboard/special-pages/calender';
+//admin
+import Admin from '../views/dashboard/admin/admin';
 
 const DefaultRouter = () => {
     return (
@@ -77,6 +79,8 @@ const DefaultRouter = () => {
                      {/* extra */}
                      <Route path="/dashboard/extra/privacy-policy" exact component={PrivacyPolicy}/>
                      <Route path="/dashboard/extra/terms-of-service" exact component={TermsofService}/>
+                     {/*admin*/}
+                     <Route path="/dashboard/admin/admin" exact component={Admin}/>
                 </Switch>
             </CSSTransition>
         </TransitionGroup>

@@ -1,5 +1,4 @@
 .btn{
-    font-size: var(--body-font-size);
     &.btn-primary{
         color: var(--#{$variable-prefix}white);
         background-color: var(--#{$variable-prefix}primary);
