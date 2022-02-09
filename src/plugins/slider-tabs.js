@@ -1,5 +1,3 @@
-
-
 class SliderTab {
   constructor(element = undefined, option = undefined) {
     if (element !== undefined) {
@@ -23,6 +21,7 @@ class SliderTab {
     this.resetSlider()
     this.mouseOver()
     this.resize()
+    this.updateinrtl()
   }
 
   addListener () {
@@ -58,7 +57,7 @@ class SliderTab {
     this.slider = this.element.querySelector(`.${this.sliderThumb}`);
     const prevItem = this.element.querySelectorAll('.nav-item')
     Array.from(prevItem,(elem) => {
-      return elem.querySelector('.nav-link').classList.remove('active')
+      elem.querySelector('.nav-link').classList.remove('active')
     })
     let sum = 0;
     if (this.element.classList.contains('flex-column')) {
@@ -75,7 +74,12 @@ class SliderTab {
       for (j ; j <= items.indexOf(item); j++) {
         sum += this.element.querySelector('.nav-item:nth-child(' + j + ')').offsetWidth;
       }
-      this.slider.style.transform = 'translate3d(' + sum + 'px, 0px, 0px)';
+      if(document.querySelector('html').getAttribute('dir') === 'rtl'){
+        this.slider.style.transform = 'translate3d(-' + sum + 'px, 0px, 0px)';
+      }
+      else{
+        this.slider.style.transform = 'translate3d(' + sum + 'px, 0px, 0px)';
+      }
       this.element.querySelector('.nav-item:nth-child(' + index + ')').querySelector('.nav-link').classList.add('active')
       this.slider.style.width = this.element.querySelector('.nav-item:nth-child(' + index + ')').offsetWidth + 'px';
     }
@@ -95,12 +99,21 @@ class SliderTab {
   resize () {
     window.addEventListener('resize', (event) => {
       const target = this.element.querySelector('.active');
-      console.log(target)
-      // const item = target.closest('.nav-item');
-      // const items = Array.from(this.element.children);
-      // const index = items.indexOf(item) + 1;
-      // this.updateSlide(item, items, index)
+      const item = target.closest('.nav-item');
+      const items = Array.from(this.element.children);
+      const index = items.indexOf(item) + 1;
+      this.updateSlide(item, items, index)
     })
+  }
+  updateinrtl () {
+      document.addEventListener('theme_scheme_direction',(e) => {
+        console.log(e)
+        const target = this.element.querySelector('.active');
+        const item = target.closest('.nav-item');
+        const items = Array.from(this.element.children);
+        const index = items.indexOf(item) + 1;
+        this.updateSlide(item, items, index)
+      })
   }
 }
 

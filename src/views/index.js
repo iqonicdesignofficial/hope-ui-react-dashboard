@@ -1,4 +1,5 @@
 import React,{useState, useEffect} from 'react'
+import {bindActionCreators} from "redux"
 import {Button, Nav, Collapse, Navbar, Container} from 'react-bootstrap'
 import Card from '../../src/components/Card'
 import Logo from '../components/partials/components/logo'
@@ -58,7 +59,67 @@ import SliderTab from '../plugins/slider-tabs'
 
 // sidebar-offcanvas
 import SidebarOffcanvas from'./uikit/sidebar-offcanvas'
-const Index = () => {
+// store
+import {NavbarstyleAction, getDirMode, getcustomizerMode, getcustomizerprimaryMode, getcustomizerinfoMode,  SchemeDirAction, ColorCustomizerAction,  getNavbarStyleMode, getSidebarActiveMode, SidebarActiveStyleAction, getDarkMode, ModeAction,  SidebarColorAction, getSidebarColorMode, getSidebarTypeMode} from '../store/setting/setting'
+import {connect} from "react-redux"
+
+const mapStateToProps = (state) => {
+    return {
+        darkMode: getDarkMode(state),
+        customizerMode: getcustomizerMode(state),
+        cololrinfomode: getcustomizerinfoMode(state),
+        colorprimarymode: getcustomizerprimaryMode(state),
+        schemeDirMode: getDirMode(state),
+        sidebarcolorMode: getSidebarColorMode(state),
+        sidebarTypeMode: getSidebarTypeMode(state),
+        sidebaractivestyleMode: getSidebarActiveMode(state),
+        navbarstylemode: getNavbarStyleMode(state),
+    };
+}
+const mapDispatchToProps = dispatch => ({
+    ...bindActionCreators(
+        {
+            ModeAction,
+            SchemeDirAction,
+            SidebarColorAction,
+            SidebarActiveStyleAction,
+            NavbarstyleAction,
+            ColorCustomizerAction,
+        },
+        dispatch
+    )
+})
+const Index = (props) => {
+     //   darkmode
+     const colorMode = sessionStorage.getItem('color-mode');
+     if(colorMode===null){
+         props.ModeAction(props.darkMode);
+     }
+     else{
+         props.ModeAction(colorMode);
+     }
+     // colocustomizermode
+     const colorcustomizerMode = sessionStorage.getItem('color-customizer-mode');
+     const colorcustomizerinfoMode = sessionStorage.getItem('colorcustominfo-mode');
+     const colorcustomizerprimaryMode = sessionStorage.getItem('colorcustomprimary-mode');
+     if(colorcustomizerMode===null){
+         props.ColorCustomizerAction(props.customizerMode, props.cololrinfomode, props.colorprimarymode);
+         document.documentElement.style.setProperty('--bs-info', props.cololrinfomode );
+     }
+     else{
+         props.ColorCustomizerAction(colorcustomizerMode, colorcustomizerinfoMode, colorcustomizerprimaryMode);
+         document.documentElement.style.setProperty('--bs-info', colorcustomizerinfoMode);
+     }
+
+     // rtlmode
+     const rtlMode = sessionStorage.getItem('rtl-mode');
+     if(rtlMode===null){
+         props.SchemeDirAction(props.schemeDirMode)
+     }
+     else{
+         props.SchemeDirAction(rtlMode);
+     }   
+     
     // collapse
     const [open, setOpen] = useState(false);
     const [open1, setOpen1] = useState(false);
@@ -101,7 +162,7 @@ const Index = () => {
                             <div>
                                 <Link className="btn btn-light bg-white" to="/dashboard" target="_black">
                                     <svg width="22" height="22" className="me-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                                     </svg>
                                     Dashboard Demo
                                 </Link>
@@ -128,7 +189,7 @@ const Index = () => {
                                 <Nav className="ms-auto mb-2 mb-lg-0 d-flex align-items-start">
                                     <Nav.Link href="https://templates.iqonic.design/hope-ui/documentation/react/build/" target="_blank" className="">Documentation</Nav.Link>
                                     <Nav.Link href="https://templates.iqonic.design/hope-ui/documentation/react/build/changelog" target="_blank" className="me-3">Change Log</Nav.Link>
-                                    <Nav.Link href="https://iqonic.design/product/admin-templates/hope-ui-admin-free-open-source-bootstrap-admin-template/" className="btn btn-success text-white">
+                                    <Nav.Link href="https://iqonic.design/product/admin-templates/hope-ui-free-open-source-react-admin-template/" className="btn btn-success text-white">
                                         <svg width="22" className="me-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path opacity="0.4" fillRule="evenodd" clipRule="evenodd" d="M5.91064 20.5886C5.91064 19.7486 6.59064 19.0686 7.43064 19.0686C8.26064 19.0686 8.94064 19.7486 8.94064 20.5886C8.94064 21.4186 8.26064 22.0986 7.43064 22.0986C6.59064 22.0986 5.91064 21.4186 5.91064 20.5886ZM17.1606 20.5886C17.1606 19.7486 17.8406 19.0686 18.6806 19.0686C19.5106 19.0686 20.1906 19.7486 20.1906 20.5886C20.1906 21.4186 19.5106 22.0986 18.6806 22.0986C17.8406 22.0986 17.1606 21.4186 17.1606 20.5886Z" fill="currentColor"></path>
                                             <path fillRule="evenodd" clipRule="evenodd" d="M20.1907 6.34909C20.8007 6.34909 21.2007 6.55909 21.6007 7.01909C22.0007 7.47909 22.0707 8.13909 21.9807 8.73809L21.0307 15.2981C20.8507 16.5591 19.7707 17.4881 18.5007 17.4881H7.59074C6.26074 17.4881 5.16074 16.4681 5.05074 15.1491L4.13074 4.24809L2.62074 3.98809C2.22074 3.91809 1.94074 3.52809 2.01074 3.12809C2.08074 2.71809 2.47074 2.44809 2.88074 2.50809L5.26574 2.86809C5.60574 2.92909 5.85574 3.20809 5.88574 3.54809L6.07574 5.78809C6.10574 6.10909 6.36574 6.34909 6.68574 6.34909H20.1907ZM14.1307 11.5481H16.9007C17.3207 11.5481 17.6507 11.2081 17.6507 10.7981C17.6507 10.3781 17.3207 10.0481 16.9007 10.0481H14.1307C13.7107 10.0481 13.3807 10.3781 13.3807 10.7981C13.3807 11.2081 13.7107 11.5481 14.1307 11.5481Z" fill="currentColor"></path>
@@ -154,6 +215,13 @@ const Index = () => {
                                         onClick={() => setOpen(!open)}
                                         aria-controls="example-collapse-text"
                                         aria-expanded={open}>
+                                            <i className="right-icon me-2" onClick={() => setOpen(!open)}
+                                        aria-controls="example-collapse-text"
+                                        aria-expanded={open}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                                                </svg>
+                                            </i>
                                     Components
                                 </Button>
                                 <Collapse in={open}>
@@ -188,6 +256,13 @@ const Index = () => {
                                         onClick={() => setOpen1(!open1)}
                                         aria-controls="example-collapse-text"
                                         aria-expanded={open1}>
+                                            <i className="right-icon me-2" onClick={() => setOpen1(!open1)}
+                                        aria-controls="example-collapse-text"
+                                        aria-expanded={open1} >
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                                                </svg>
+                                            </i>
                                     Forms
                                 </Button>
                                 <Collapse in={open1}>
@@ -209,6 +284,13 @@ const Index = () => {
                                         onClick={() => setOpen2(!open2)}
                                         aria-controls="example-collapse-text"
                                         aria-expanded={open2}>
+                                            <i className="right-icon me-2" onClick={() => setOpen2(!open2)}
+                                        aria-controls="example-collapse-text"
+                                        aria-expanded={open2} >
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="18" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
+                                                </svg>
+                                            </i>
                                     Contents
                                 </Button>
                                 <Collapse in={open2}>
@@ -313,7 +395,7 @@ const Index = () => {
                 <SidebarOffcanvas />
             </div>
             <div className="btn-download">
-                <Button variant=" " href="https://iqonic.design/product/admin-templates/hope-ui-admin-free-open-source-bootstrap-admin-template/" target="_blank" >
+                <Button variant=" " href="https://iqonic.design/product/admin-templates/hope-ui-free-open-source-react-admin-template/" target="_blank" >
                     <svg width="22" className="me-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path opacity="0.4" fillRule="evenodd" clipRule="evenodd" d="M5.91064 20.5886C5.91064 19.7486 6.59064 19.0686 7.43064 19.0686C8.26064 19.0686 8.94064 19.7486 8.94064 20.5886C8.94064 21.4186 8.26064 22.0986 7.43064 22.0986C6.59064 22.0986 5.91064 21.4186 5.91064 20.5886ZM17.1606 20.5886C17.1606 19.7486 17.8406 19.0686 18.6806 19.0686C19.5106 19.0686 20.1906 19.7486 20.1906 20.5886C20.1906 21.4186 19.5106 22.0986 18.6806 22.0986C17.8406 22.0986 17.1606 21.4186 17.1606 20.5886Z" fill="currentColor"></path>
                         <path fillRule="evenodd" clipRule="evenodd" d="M20.1907 6.34909C20.8007 6.34909 21.2007 6.55909 21.6007 7.01909C22.0007 7.47909 22.0707 8.13909 21.9807 8.73809L21.0307 15.2981C20.8507 16.5591 19.7707 17.4881 18.5007 17.4881H7.59074C6.26074 17.4881 5.16074 16.4681 5.05074 15.1491L4.13074 4.24809L2.62074 3.98809C2.22074 3.91809 1.94074 3.52809 2.01074 3.12809C2.08074 2.71809 2.47074 2.44809 2.88074 2.50809L5.26574 2.86809C5.60574 2.92909 5.85574 3.20809 5.88574 3.54809L6.07574 5.78809C6.10574 6.10909 6.36574 6.34909 6.68574 6.34909H20.1907ZM14.1307 11.5481H16.9007C17.3207 11.5481 17.6507 11.2081 17.6507 10.7981C17.6507 10.3781 17.3207 10.0481 16.9007 10.0481H14.1307C13.7107 10.0481 13.3807 10.3781 13.3807 10.7981C13.3807 11.2081 13.7107 11.5481 14.1307 11.5481Z" fill="currentColor"></path>
@@ -325,4 +407,4 @@ const Index = () => {
     )
 }
 
-export default Index;
+export default connect(mapStateToProps, mapDispatchToProps)(Index);

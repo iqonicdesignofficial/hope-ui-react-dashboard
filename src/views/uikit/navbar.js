@@ -1,9 +1,10 @@
-import React from 'react'
+import React,{useState} from 'react'
 // import { Link } from 'react-router-dom'
 import {Button, NavDropdown, Container, Navbar, Dropdown, Nav, Tab} from 'react-bootstrap'
 import Card from '../../../src/components/Card'
 
 const Navbars =() =>{
+    const [toggleState, setToggleState] = useState(true);
     return(
         <>
             <article id="navbar">
@@ -26,9 +27,9 @@ const Navbars =() =>{
                 <Card className="iq-document-card">
                     <Tab.Container defaultActiveKey="first">
                         <div className="d-flex justify-content-end">
-                            <Nav as="ul" className=" nav-tabs nav-tunnel nav-slider" data-toggle="slider-tab" role="tablist">
+                            <Nav as="ul" className=" nav-tabs nav-tunnel nav-slider">
                                 <Nav.Item as="li" role="presentation">
-                                    <Nav.Link as="button" eventKey="first" className=" d-flex align-items-center" data-bs-toggle="tab" data-bs-target="#content-Navbar-prv" type="button" role="tab" aria-controls="output" aria-selected="true">
+                                    <Nav.Link as="button" eventKey="first" className={toggleState === true ? "tabs active" : "tabs d-flex align-items-center"} onClick={() => setToggleState(true)} data-bs-toggle="tab" data-bs-target="#content-Navbar-prv" type="button" role="tab" aria-controls="output" aria-selected="true">
                                         <svg width="20" className="me-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M22.4541 11.3918C22.7819 11.7385 22.7819 12.2615 22.4541 12.6082C21.0124 14.1335 16.8768 18 12 18C7.12317 18 2.98759 14.1335 1.54586 12.6082C1.21811 12.2615 1.21811 11.7385 1.54586 11.3918C2.98759 9.86647 7.12317 6 12 6C16.8768 6 21.0124 9.86647 22.4541 11.3918Z" stroke="currentColor"/>
                                             <circle cx="12" cy="12" r="3.5" stroke="currentColor"/>
@@ -38,7 +39,7 @@ const Navbars =() =>{
                                     </Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item as="li" role="presentation">
-                                    <Nav.Link as="button" eventKey="second" className=" d-flex align-items-center" data-bs-toggle="tab" data-bs-target="#content-Navbar-code" type="button" role="tab" aria-controls="profile" aria-selected="false">
+                                    <Nav.Link as="button" eventKey="second" className={toggleState === false ? "tabs active-tabs" : "tabs d-flex align-items-center"} onClick={() => setToggleState(false)} data-bs-toggle="tab" data-bs-target="#content-Navbar-code" type="button" role="tab" aria-controls="profile" aria-selected="false">
                                         <svg width="20" className="me-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M4 2.00004C4 1.44776 4.44771 1.00004 5 1.00004L13.5721 1C13.8454 1 14.1068 1.11184 14.2955 1.30953L19.7234 6.99588C19.9009 7.18191 20 7.42919 20 7.68636V22C20 22.5523 19.5523 23 19 23H5C4.44772 23 4 22.5523 4 22V2.00004Z" stroke="currentColor"/>
                                             <path d="M4 2C4 1.44772 4.44772 1 5 1H13C13.5523 1 14 1.44772 14 2V6.28566C14 6.83794 14.4477 7.28566 15 7.28566H19C19.5523 7.28566 20 7.73338 20 8.28566V22C20 22.5522 19.5523 23 19 23H5C4.44772 23 4 22.5522 4 22V2Z" stroke="currentColor"/>
@@ -58,7 +59,7 @@ const Navbars =() =>{
                             </Nav>
                         </div>
                             <Tab.Content>
-                                <Tab.Pane eventKey="first" className=" bd-heading-1 fade show " id="content-Navbar-prv" role="tabpanel" aria-labelledby="typo-output">
+                                <Tab.Pane eventKey="first" className={toggleState === true ? "content  active-content" : "content"} id="content-Navbar-prv" role="tabpanel" aria-labelledby="typo-output">
                                     <div className="bd-example">
                                         <Navbar bg="light" expand="lg" className="navbar-light">
                                             <Container fluid>
@@ -173,7 +174,7 @@ const Navbars =() =>{
                                         </Navbar>
                                     </div>
                                 </Tab.Pane>
-                                <Tab.Pane eventKey="second" className=" bd-heading-1 fade show" id="content-Navbar-code" role="tabpanel" aria-labelledby="typo-output">
+                                <Tab.Pane eventKey="second"  id="content-Navbar-code" className={toggleState === false ? "content  active-content" : "content"} role="tabpanel" aria-labelledby="typo-output">
                                     <div className="section-block">
 <pre><code className="language-markup">
 {`<div className="bd-example">

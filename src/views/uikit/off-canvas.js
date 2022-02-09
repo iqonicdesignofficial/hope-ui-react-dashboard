@@ -3,6 +3,10 @@ import {Button, Offcanvas, Nav, Tab} from 'react-bootstrap'
 import Card from '../../../src/components/Card'
 
 const OffCanvass =() =>{
+
+    //tab
+    const [toggleState, setToggleState] = useState(1);
+
      //offcanves
     const [show5, setShow5] = useState(false);
 
@@ -51,9 +55,9 @@ const OffCanvass =() =>{
                 <Card className=" iq-document-card">
                     <Tab.Container  defaultActiveKey="first">
                         <div className="d-flex justify-content-end">
-                            <Nav as="ul" className=" nav-tabs nav-tunnel nav-slider" data-toggle="slider-tab" role="tablist">
+                            <Nav as="ul" className=" nav-tabs nav-tunnel nav-slider">
                                 <Nav.Item as="li" role="presentation">
-                                    <Nav.Link as="button" eventKey="first" className=" d-flex align-items-center" data-bs-toggle="tab" data-bs-target="#content-Offcanvas-prv" type="button" role="tab" aria-controls="output" aria-selected="true">
+                                    <Nav.Link as="button" eventKey="first" className={toggleState === 1 ? "tabs active" : "tabs d-flex align-items-center"} onClick={() => setToggleState(1)} data-bs-toggle="tab" data-bs-target="#content-Offcanvas-prv" type="button" role="tab" aria-controls="output" aria-selected="true">
                                         <svg width="20" className="me-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M22.4541 11.3918C22.7819 11.7385 22.7819 12.2615 22.4541 12.6082C21.0124 14.1335 16.8768 18 12 18C7.12317 18 2.98759 14.1335 1.54586 12.6082C1.21811 12.2615 1.21811 11.7385 1.54586 11.3918C2.98759 9.86647 7.12317 6 12 6C16.8768 6 21.0124 9.86647 22.4541 11.3918Z" stroke="currentColor"/>
                                             <circle cx="12" cy="12" r="3.5" stroke="currentColor"/>
@@ -63,7 +67,7 @@ const OffCanvass =() =>{
                                     </Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item as="li" role="presentation">
-                                    <Nav.Link as="button" eventKey="second" className=" d-flex align-items-center" data-bs-toggle="tab" data-bs-target="#content-Offcanvas-code" type="button" role="tab" aria-controls="profile" aria-selected="false">
+                                    <Nav.Link as="button" eventKey="second" className={toggleState === 2 ? "tabs active-tabs" : "tabs d-flex align-items-center"} onClick={() => setToggleState(2)}  data-bs-toggle="tab" data-bs-target="#content-Offcanvas-code" type="button" role="tab" aria-controls="profile" aria-selected="false">
                                         <svg width="20" className="me-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M4 2C4 1.44772 4.44772 1 5 1H13C13.5523 1 14 1.44772 14 2V6.28566C14 6.83794 14.4477 7.28566 15 7.28566H19C19.5523 7.28566 20 7.73338 20 8.28566V22C20 22.5522 19.5523 23 19 23H5C4.44772 23 4 22.5522 4 22V2Z" stroke="currentColor"/>
                                             <mask fill="white">
@@ -82,7 +86,7 @@ const OffCanvass =() =>{
                             </Nav>
                         </div>
                         <Tab.Content>
-                            <Tab.Pane eventKey="first" className="bd-heading-1 fade show" id="content-Offcanvas-prv" role="tabpanel" aria-labelledby="typo-output">
+                            <Tab.Pane eventKey="first" className={toggleState === 1 ? "content  active-content" : "content"} id="content-Offcanvas-prv" role="tabpanel" aria-labelledby="typo-output">
                                     <div className="bd-example">
                                     <Button variant="primary me-3 mb-3" onClick={handleShow5}>
                                         Toggle top offcanvas
@@ -141,7 +145,7 @@ const OffCanvass =() =>{
                                     </Offcanvas>
                                 </div> 
                             </Tab.Pane>
-                            <Tab.Pane eventKey="second" className=" bd-heading-1 fade show" id="content-Offcanvas-code" role="tabpanel" aria-labelledby="typo-output">
+                            <Tab.Pane eventKey="second" className={toggleState === 2 ? "content  active-content" : "content"} id="content-Offcanvas-code" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="section-block">
 <pre><code className="language-markup"> 
 {`<div className="bd-example">

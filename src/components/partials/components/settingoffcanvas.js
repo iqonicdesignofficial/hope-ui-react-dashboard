@@ -350,7 +350,7 @@ const SettingOffcanvas = (props ) => {
                                     </i>
                                     <span className="ms-2 "> White </span>
                                 </div>
-                                <div className={`${props.sidebarcolorMode === 'transparent'? 'active' : ''} btn btn-border mb-4 `}  onClick={() => {props.SidebarColorAction('transparent')}} data-setting="sidebar" data-name="sidebar-color" data-value="sidebar-transparent">
+                                <div className={`${props.sidebarcolorMode === 'transparent'? 'active' : ''} btn btn-border mb-4 `}  onClick={() => {props.SidebarColorAction('')}} data-setting="sidebar" data-name="sidebar-color" data-value="sidebar-transparent">
                                     <i className="text-body">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="18" viewBox="0 0 24 24" fill="currentColor">
                                             <circle cx="12" cy="12" r="8" fill="#F5F6FA" stroke="black" strokeWidth="3"></circle>
