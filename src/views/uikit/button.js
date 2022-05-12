@@ -61,8 +61,8 @@ const Buttons =() =>{
                         <Tab.Content className="">
                             <Tab.Pane eventKey="first" className={toggleState === true ? "content  active-content" : "content"} id="content-Button-prv" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="bd-example">
-                                    <Button variant="primary">Default</Button>
-                                    <Button variant="primary rounded-pill">Rounded</Button>
+                                    <Button variant="primary">Default</Button>{' '}
+                                    <Button variant="primary rounded-pill">Rounded</Button>{' '}
                                     <Button variant="primary rounded-pill ">
                                         <span className="btn-inner">
                                             <svg width="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -72,7 +72,7 @@ const Buttons =() =>{
                                             </svg>
                                         </span>
                                         With Icon
-                                    </Button>
+                                    </Button>{' '}
                                     <Button variant="icon primary">
                                         <span className="btn-inner">
                                             <svg width="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -81,43 +81,43 @@ const Buttons =() =>{
                                                 </path>
                                             </svg>
                                         </span>
-                                    </Button>
+                                    </Button>{' '}
                                 </div>
                                 <div className="bd-example">                
-                                    <Button type="button" variant="primary">Primary</Button>
-                                    <Button type="button" variant="secondary">Secondary</Button>
-                                    <Button type="button" variant="success">Success</Button>
-                                    <Button type="button" variant="danger">Danger</Button>
-                                    <Button type="button" variant="warning">Warning</Button>
-                                    <Button type="button" variant="info">Info</Button>
-                                    <Button type="button" variant="light">Light</Button>
-                                    <Button type="button" variant="dark">Dark</Button>
-                                    <Button type="button" variant="link">Link</Button>
+                                    <Button type="button" variant="primary">Primary</Button>{' '}
+                                    <Button type="button" variant="secondary">Secondary</Button>{' '}
+                                    <Button type="button" variant="success">Success</Button>{' '}
+                                    <Button type="button" variant="danger">Danger</Button>{' '}
+                                    <Button type="button" variant="warning">Warning</Button>{' '}
+                                    <Button type="button" variant="info">Info</Button>{' '}
+                                    <Button type="button" variant="light">Light</Button>{' '}
+                                    <Button type="button" variant="dark">Dark</Button>{' '}
+                                    <Button type="button" variant="link">Link</Button>{' '}
                                 </div>
                                 <div className="bd-example">                
-                                    <Button type="button" variant="outline-primary">Primary</Button>
-                                    <Button type="button" variant="outline-secondary">Secondary</Button>
-                                    <Button type="button" variant="outline-success">Success</Button>
-                                    <Button type="button" variant="outline-danger">Danger</Button>
-                                    <Button type="button" variant="outline-warning">Warning</Button>
-                                    <Button type="button" variant="outline-info">Info</Button>
-                                    <Button type="button" variant="outline-light">Light</Button>
-                                    <Button type="button" variant="outline-dark">Dark</Button>
+                                    <Button type="button" variant="outline-primary">Primary</Button>{' '}
+                                    <Button type="button" variant="outline-secondary">Secondary</Button>{' '}
+                                    <Button type="button" variant="outline-success">Success</Button>{' '}
+                                    <Button type="button" variant="outline-danger">Danger</Button>{' '}
+                                    <Button type="button" variant="outline-warning">Warning</Button>{' '}
+                                    <Button type="button" variant="outline-info">Info</Button>{' '}
+                                    <Button type="button" variant="outline-light">Light</Button>{' '}
+                                    <Button type="button" variant="outline-dark">Dark</Button>{' '}
                                 </div>
                                 <div className="bd-example">
-                                    <Button type="button" variant="primary mr-2" size="xs">Ex small</Button>
-                                    <Button type="button" variant="primary" size="sm">Small button</Button>
-                                    <Button type="button" variant="primary">Default button</Button>
-                                    <Button type="button" variant="primary" size="lg">Large button</Button>
+                                    <Button type="button" variant="primary mr-2" size="xs">Ex small</Button>{' '}
+                                    <Button type="button" variant="primary" size="sm">Small button</Button>{' '}
+                                    <Button type="button" variant="primary">Default button</Button>{' '}
+                                    <Button type="button" variant="primary" size="lg">Large button</Button>{' '}
                                 </div>
                                 <div className="bd-example">
-                                    <Button type="button" variant="soft-info">Info</Button>
-                                    <Button type="button" variant="soft-primary">Primary</Button>
-                                    <Button type="button" variant="soft-success">Success</Button>
-                                    <Button type="button" variant="soft-danger">Danger</Button>
-                                    <Button type="button" variant="soft-warning">Warning</Button>
-                                    <Button type="button" variant="soft-light">Light</Button>
-                                    <Button type="button" variant="soft-dark">Dark</Button>
+                                    <Button type="button" variant="soft-info">Info</Button>{' '}
+                                    <Button type="button" variant="soft-primary">Primary</Button>{' '}
+                                    <Button type="button" variant="soft-success">Success</Button>{' '}
+                                    <Button type="button" variant="soft-danger">Danger</Button>{' '}
+                                    <Button type="button" variant="soft-warning">Warning</Button>{' '}
+                                    <Button type="button" variant="soft-light">Light</Button>{' '}
+                                    <Button type="button" variant="soft-dark">Dark</Button>{' '}
                                 </div>
                             </Tab.Pane>
                             <Tab.Pane eventKey="second" className={toggleState === false ? "content  active-content" : "content"} id="content-Button-code" role="tabpanel" aria-labelledby="typo-output">

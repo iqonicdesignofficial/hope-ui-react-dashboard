@@ -79,21 +79,21 @@ const Popovers =() =>{
                                             </Popover>
                                         }>
                                         <Button  variant="secondary mt-2">Popover on top</Button>
-                                    </OverlayTrigger>
+                                    </OverlayTrigger>{' '}
                                         <OverlayTrigger trigger="click" placement="right" overlay={
                                             <Popover id="popover-basic">
                                             <Popover.Body>Vivamus sagittis lacus vel augue laoreet rutrum faucibus.</Popover.Body>
                                             </Popover>
                                         }>
                                         <Button  variant="secondary mt-2">Popover on end</Button>
-                                    </OverlayTrigger>
+                                    </OverlayTrigger>{' '}
                                         <OverlayTrigger trigger="click" placement="bottom" overlay={
                                             <Popover id="popover-basic">
                                             <Popover.Body>Vivamus sagittis lacus vel augue laoreet rutrum faucibus.</Popover.Body>
                                             </Popover>
                                         }>
                                         <Button  variant="secondary mt-2">Popover on Bottom</Button>
-                                    </OverlayTrigger>
+                                    </OverlayTrigger>{' '}
                                         <OverlayTrigger trigger="click" placement="left" overlay={
                                             <Popover id="popover-basic">
                                             <Popover.Body>Vivamus sagittis lacus vel augue laoreet rutrum faucibus.</Popover.Body>

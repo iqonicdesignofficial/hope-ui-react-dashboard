@@ -114,7 +114,7 @@ const DropDowns =() =>{
                                             <Dropdown.Item href="#">Another action</Dropdown.Item>
                                             <Dropdown.Item href="#">Something else here</Dropdown.Item>
                                         </Dropdown.Menu>
-                                    </Dropdown>
+                                    </Dropdown>{' '}
                                     <Dropdown as={ButtonGroup}>
                                         <Button type="button" variant="secondary">Secondary</Button>
                                         <Dropdown.Toggle as={Button} type="button" split variant="secondary">
@@ -125,7 +125,7 @@ const DropDowns =() =>{
                                             <Dropdown.Item href="#">Another action</Dropdown.Item>
                                             <Dropdown.Item href="#">Something else here</Dropdown.Item>
                                         </Dropdown.Menu>
-                                    </Dropdown>
+                                    </Dropdown>{' '}
                                     <Dropdown as={ButtonGroup}>
                                         <Button type="button" variant="success">Success</Button>
                                         <Dropdown.Toggle type="button" split variant="success" >
@@ -136,7 +136,7 @@ const DropDowns =() =>{
                                             <Dropdown.Item href="#">Another action</Dropdown.Item>
                                             <Dropdown.Item href="#">Something else here</Dropdown.Item>
                                         </Dropdown.Menu>
-                                    </Dropdown>
+                                    </Dropdown>{' '}
                                     <Dropdown as={ButtonGroup}>
                                         <Button type="button" variant="info">Info</Button>
                                         <Dropdown.Toggle type="button" split variant="info" >
@@ -147,7 +147,7 @@ const DropDowns =() =>{
                                             <Dropdown.Item href="#">Another action</Dropdown.Item>
                                             <Dropdown.Item href="#">Something else here</Dropdown.Item>
                                         </Dropdown.Menu>
-                                    </Dropdown>
+                                    </Dropdown>{' '}
                                     <Dropdown as={ButtonGroup}>
                                         <Button type="button" variant="warning">Warning</Button>
                                         <Dropdown.Toggle as={Button} split type="button" variant="warning" >
@@ -158,7 +158,7 @@ const DropDowns =() =>{
                                             <Dropdown.Item href="#">Another action</Dropdown.Item>
                                             <Dropdown.Item href="#">Something else here</Dropdown.Item>
                                         </Dropdown.Menu>
-                                    </Dropdown>
+                                    </Dropdown>{' '}
                                     <Dropdown as={ButtonGroup}>
                                         <Button type="button" variant="danger">Danger</Button>
                                         <Dropdown.Toggle as={Button} type="button" split variant="danger" >

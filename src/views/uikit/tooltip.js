@@ -66,28 +66,28 @@ const Tooltips =() =>{
                                         </Tooltip>
                                         }>
                                         <Button variant="secondary mt-2">Tooltip on top</Button>
-                                    </OverlayTrigger>
+                                    </OverlayTrigger>{' '}
                                     <OverlayTrigger  placement="right" overlay={
                                         <Tooltip >
                                             Tooltip on right
                                         </Tooltip>
                                         }>
                                         <Button variant="secondary mt-2">Tooltip on right</Button>
-                                    </OverlayTrigger>
+                                    </OverlayTrigger>{' '}
                                     <OverlayTrigger  placement="bottom" overlay={
                                         <Tooltip >
                                             Tooltip on bottom
                                         </Tooltip>
                                         }>
                                         <Button variant="secondary mt-2">Tooltip on bottom</Button>
-                                    </OverlayTrigger>
+                                    </OverlayTrigger>{' '}
                                     <OverlayTrigger  placement="left" overlay={
                                         <Tooltip >
                                             Tooltip on left
                                         </Tooltip>
                                         }>
                                         <Button variant="secondary mt-2">Tooltip on left</Button>
-                                    </OverlayTrigger>
+                                    </OverlayTrigger>{' '}
                                     <OverlayTrigger  placement="top" overlay={
                                         <Tooltip >
                                             <em>Tooltip</em> <u>with</u> <b>HTML</b> 

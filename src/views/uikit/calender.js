@@ -3,8 +3,9 @@ import React,{useState}  from 'react'
 import { Nav, Tab, Button} from 'react-bootstrap'
 import Card from '../../../src/components/Card'
 
-//datepicker
-import Datepickers from '../../components/datepicker';
+//flatpicker
+import Flatpickr from "react-flatpickr";
+import "flatpickr/dist/flatpickr.css";
 
 const Calenders =() =>{
     const [toggleState, setToggleState] = useState(true);
@@ -62,19 +63,19 @@ const Calenders =() =>{
                             </Nav>
                         </div>
                         <Tab.Content className="">
-                            <Tab.Pane eventKey="first" className={toggleState === true ? "content  active-content" : "content"} id="content-Calendar-prv" role="tabpanel" aria-labelledby="typo-output">
+                            <Tab.Pane eventKey="first">
                                 <div className="bd-example">
-                                    <div className="input-group">
-                                        <Datepickers className="vanila-datepicker" names="start" placeholder="Date Picker" />
+                                    <div className="form-group">
+                                        <Flatpickr  options={{ minDate: "today"}} className="form-control flatpickrdate" placeholder="Select Date... "/>
                                     </div>
-                                </div>  
+                                </div> 
                                 <div className="bd-example">
                                     <div className="form-group vanila-daterangepicker d-flex flex-row">
-                                        <Datepickers className="vanila-datepicker" names="start" placeholder="From Date" />
+                                        <Flatpickr  options={{minDate: "today"}} className="form-control range_flatpicker" placeholder="Select Date...  " />
                                         <span className="flex-grow-0">
                                             <span className="btn">To</span>
                                         </span>
-                                        <Datepickers  names="end" placeholder="From Date" />
+                                        <Flatpickr  options={{minDate: "today"}} className="form-control range_flatpicker" placeholder="Select Date..." />
                                     </div>
                                 </div>
                                 <div className="bd-example">

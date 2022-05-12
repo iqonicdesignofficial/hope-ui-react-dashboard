@@ -6,10 +6,10 @@ import { ScrollSpy } from 'bootstrap'
 const Scrollspys =() =>{
 
     const [toggleState, setToggleState] = useState(true);
-
+    const scrollRef = React.createRef();
     useEffect(() => {
         new ScrollSpy(document.body, {
-            target: '#content-Scrollspy-prv'
+            target: '#navbar-example2'
           });
         })
 
@@ -87,7 +87,7 @@ const Scrollspys =() =>{
                                                 </NavDropdown>
                                             </ul>
                                     </Nav>   
-                                        <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" className="scrollspy-example" tabIndex="0">
+                                        <div ref={scrollRef} data-bs-offset="0" className="scrollspy-example" tabIndex="0">
                                             <h4 id="scrollspyHeading1">First heading</h4>
                                             <p>This is some placeholder content for the scrollspy page. Note that as you scroll down the page, the appropriate navigation link is highlighted. It's repeated throughout the component example. We keep adding some more example copy here to emphasize the scrolling and highlighting.</p>
                                             <h4 id="scrollspyHeading2">Second heading</h4>
