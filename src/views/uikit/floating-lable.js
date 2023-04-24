@@ -89,7 +89,7 @@ const FloatingLables =() =>{
                             </Tab.Pane>
                             <Tab.Pane eventKey="second"className={toggleState === false ? "content  active-content" : "content"} id="content-floating-code" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="section-block">
-<pre><code className="language-markup"> 
+<pre className="language-markup"><code className="language-markup"> 
 {`<div className="bd-example">
     <Form>
         <Form.Floating className=" mb-3">

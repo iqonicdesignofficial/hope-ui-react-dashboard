@@ -104,7 +104,7 @@ const Overview =() =>{
                             </Tab.Pane>
                             <Tab.Pane eventKey="second" className={toggleState === false ? "content  active-content" : "content"} id="content-form-code" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="section-block">
-<pre><code className="language-markup">
+<pre className="language-markup"><code className="language-markup">
 {`<div className="bd-example">
     <form>
         <div className="mb-3">

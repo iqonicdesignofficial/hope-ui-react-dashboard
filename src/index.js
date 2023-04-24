@@ -1,26 +1,38 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
 //router
-import { BrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 //store
-
-import { Provider } from 'react-redux';
+import { Provider } from "react-redux";
 //reducer
-import Store from './store'
+import { store } from "./store";
 
+import Index from "./views/index";
+import { IndexRouters } from "./router";
+import { SimpleRouter } from "./router/simple-router";
+import { DefaultRouter } from "./router/default-router";
 
-ReactDOM.render(
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Index />,
+  },
+  ...DefaultRouter,
+  ...IndexRouters,
+  ...SimpleRouter
+] ,{basename: process.env.PUBLIC_URL });
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
-     <Provider store={Store}>
-            <App />
-        </Provider>
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
+    <Provider store={store}>
+      <App>
+        <RouterProvider router={router}></RouterProvider>
+      </App>
+    </Provider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -87,7 +87,7 @@ const Navs =() =>{
                             </Tab.Pane>
                             <Tab.Pane eventKey="second" className={toggleState === false ? "content  active-content" : "content"} id="content-inputgroup-code" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="section-block">
-<pre><code className="language-markup">
+<pre className="language-markup"><code className="language-markup">
 {`<div className="bd-example">
     <InputGroup className=" mb-3">
         <span className="input-group-text" id="basic-addon1">@</span>

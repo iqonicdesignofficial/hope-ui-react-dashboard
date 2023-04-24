@@ -67,6 +67,7 @@ const Badges =() =>{
                                 <h4>Example heading <Badge bg="danger">New</Badge></h4>
                                 <h5>Example heading <Badge bg="warning">New</Badge></h5>
                                 <h6>Example heading <Badge bg="info">New</Badge></h6>
+                                <h6>Example heading <Badge bg="gray">New</Badge></h6>
                             </div>
                             <div className="bd-example">
                                 <Badge pill bg="primary">Primary</Badge>{' '}
@@ -77,11 +78,12 @@ const Badges =() =>{
                                 <Badge pill bg="info">Info</Badge>{' '}
                                 <Badge pill bg="light text-dark">Light</Badge>{' '}
                                 <Badge pill bg="dark">Dark</Badge>
+                                <Badge pill bg='gray'>Gray</Badge>
                             </div>
                         </Tab.Pane>
                         <Tab.Pane eventKey="second" className={toggleState === false ? "content  active-content" : "content"} id="content-badge-code" role="tabpanel" aria-labelledby="typo-output">
                             <div className="section-block">
-<pre><code className="language-markup">
+<pre className="language-markup"><code className="language-markup">
 {`
  <div className="bd-example">
  <h1>Example heading <Badge bg="primary">New</Badge></h1>

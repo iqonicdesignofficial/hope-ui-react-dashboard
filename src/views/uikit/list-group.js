@@ -69,7 +69,7 @@ const ListGroups =() =>{
                                     <ListGroup.Item>And a fifth one</ListGroup.Item>
                                 </ListGroup>
                             </div>
-                            <div className="bd-example">
+                            <div className="bd-example pt-2">
                                 <ListGroup as="ul" >
                                     <ListGroup.Item as="li" disabled>A disabled item</ListGroup.Item>
                                     <ListGroup.Item as="li">A second item</ListGroup.Item>
@@ -78,7 +78,7 @@ const ListGroups =() =>{
                                     <ListGroup.Item as="li">And a fifth one</ListGroup.Item>
                                 </ListGroup>
                             </div>
-                            <div className="bd-example">
+                            <div className="bd-example pt-2">
                                 <ListGroup as="ul" className=" list-group-flush">
                                     <ListGroupItem as="li">An item</ListGroupItem>
                                     <ListGroupItem as="li">A second item</ListGroupItem>
@@ -87,7 +87,7 @@ const ListGroups =() =>{
                                     <ListGroupItem as="li">And a fifth one</ListGroupItem>
                                 </ListGroup>
                             </div>
-                            <div className="bd-example">
+                            <div className="bd-example pt-2">
                                 <ListGroup as="ol" className="list-group-numbered">
                                     <ListGroupItem as="li" className=" d-flex justify-content-between align-items-start">
                                         <div className="ms-2 me-auto">
@@ -112,7 +112,7 @@ const ListGroups =() =>{
                                     </ListGroupItem>
                                 </ListGroup>
                             </div>
-                            <div className="bd-example">
+                            <div className="bd-example pt-2">
                                 <ListGroup>
                                     <ListGroupItem href="#" action >A simple default list group item</ListGroupItem>                        
                                     <ListGroupItem href="#" action variant="primary">A simple primary list group item</ListGroupItem>
@@ -123,9 +123,10 @@ const ListGroups =() =>{
                                     <ListGroupItem href="#" action variant="info">A simple info list group item</ListGroupItem>
                                     <ListGroupItem href="#" action variant="light">A simple light list group item</ListGroupItem>
                                     <ListGroupItem href="#"  action variant="dark">A simple dark list group item</ListGroupItem>
+                                    <ListGroupItem href="#"  action variant="gray">A simple dark list group item</ListGroupItem>
                                 </ListGroup>
                             </div>
-                            <div className="bd-example">
+                            <div className="bd-example pt-2">
                                 <ListGroup as="ul">
                                     <ListGroupItem as="li" className="d-flex justify-content-between align-items-center">
                                         A list item
@@ -141,7 +142,7 @@ const ListGroups =() =>{
                                     </ListGroupItem>
                                 </ListGroup>
                             </div>
-                            <div className="bd-example">
+                            <div className="bd-example pt-2">
                                 <ListGroup>
                                     <ListGroupItem href="#" className="list-group-item-action active" aria-current="true">
                                         <div className="d-flex w-100 justify-content-between">
@@ -169,7 +170,7 @@ const ListGroups =() =>{
                                     </ListGroupItem>
                                 </ListGroup>
                             </div>
-                            <div className="bd-example">
+                            <div className="bd-example pt-2">
                                 <ListGroup>
                                     <ListGroupItem as="label">
                                         <input className="form-check-input me-1" type="checkbox" defaultValue=""/>
@@ -196,7 +197,7 @@ const ListGroups =() =>{
                         </Tab.Pane>
                         <Tab.Pane eventKey="second" className={toggleState === false ? "content  active-content" : "content"} id="content-listgroup-code" role="tabpanel" aria-labelledby="typo-output">
                             <div className="section-block">
-<pre><code className="language-markup">
+<pre className="language-markup"><code className="language-markup">
 {`<div className="bg-example">
     <ListGroup as="ul" >
         <ListGroup.Item as="li" active aria-current="true">An active item</ListGroup.Item>
@@ -207,7 +208,7 @@ const ListGroups =() =>{
     </ListGroup>
     </div>
 
-    <div className="bd-example">
+    <div className="bd-example pt-2">
     <ListGroup as="ul" >
         <ListGroup.Item as="li" disabled>A disabled item</ListGroup.Item>
         <ListGroup.Item as="li">A second item</ListGroup.Item>
@@ -216,7 +217,7 @@ const ListGroups =() =>{
         <ListGroup.Item as="li">And a fifth one</ListGroup.Item>
     </ListGroup>
     </div>
-    <div className="bd-example">
+    <div className="bd-example pt-2">
     <ListGroup as="ul" className=" list-group-flush">
         <ListGroupItem as="li">An item</ListGroupItem>
         <ListGroupItem as="li">A second item</ListGroupItem>
@@ -226,7 +227,7 @@ const ListGroups =() =>{
     </ListGroup>
     </div>
 
-    <div className="bd-example">
+    <div className="bd-example pt-2">
     <ListGroup as="ol" className="list-group-numbered">
         <ListGroupItem as="li" className=" d-flex justify-content-between align-items-start">
             <div className="ms-2 me-auto">
@@ -252,7 +253,7 @@ const ListGroups =() =>{
     </ListGroup>
     </div>
 
-    <div className="bd-example">
+    <div className="bd-example pt-2">
     <ListGroup>
         <ListGroupItem href="#" action >A simple default list group item</ListGroupItem>                        
         <ListGroupItem href="#" action variant="primary">A simple primary list group item</ListGroupItem>
@@ -266,7 +267,7 @@ const ListGroups =() =>{
     </ListGroup>
     </div>
 
-    <div className="bd-example">
+    <div className="bd-example pt-2">
     <ListGroup as="ul">
         <ListGroupItem as="li" className="d-flex justify-content-between align-items-center">
             A list item
@@ -283,7 +284,7 @@ const ListGroups =() =>{
     </ListGroup>
     </div>
 
-    <div className="bd-example">
+    <div className="bd-example pt-2">
     <ListGroup>
         <ListGroupItem href="#" className="list-group-item-action active" aria-current="true">
             <div className="d-flex w-100 justify-content-between">
@@ -312,7 +313,7 @@ const ListGroups =() =>{
     </ListGroup>
     </div>
 
-    <div className="bd-example">
+    <div className="bd-example pt-2">
     <ListGroup>
         <ListGroupItem as="label">
             <input className="form-check-input me-1" type="checkbox" defaultValue=""/>

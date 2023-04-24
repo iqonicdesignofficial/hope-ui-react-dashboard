@@ -78,34 +78,34 @@ const Popovers =() =>{
                                             <Popover.Body>Vivamus sagittis lacus vel augue laoreet rutrum faucibus.</Popover.Body>
                                             </Popover>
                                         }>
-                                        <Button  variant="secondary mt-2">Popover on top</Button>
+                                        <Button  variant="gray mt-2">Popover on top</Button>
                                     </OverlayTrigger>{' '}
                                         <OverlayTrigger trigger="click" placement="right" overlay={
                                             <Popover id="popover-basic">
                                             <Popover.Body>Vivamus sagittis lacus vel augue laoreet rutrum faucibus.</Popover.Body>
                                             </Popover>
                                         }>
-                                        <Button  variant="secondary mt-2">Popover on end</Button>
+                                        <Button  variant="gray mt-2">Popover on end</Button>
                                     </OverlayTrigger>{' '}
                                         <OverlayTrigger trigger="click" placement="bottom" overlay={
                                             <Popover id="popover-basic">
                                             <Popover.Body>Vivamus sagittis lacus vel augue laoreet rutrum faucibus.</Popover.Body>
                                             </Popover>
                                         }>
-                                        <Button  variant="secondary mt-2">Popover on Bottom</Button>
+                                        <Button  variant="gray mt-2">Popover on Bottom</Button>
                                     </OverlayTrigger>{' '}
                                         <OverlayTrigger trigger="click" placement="left" overlay={
                                             <Popover id="popover-basic">
                                             <Popover.Body>Vivamus sagittis lacus vel augue laoreet rutrum faucibus.</Popover.Body>
                                             </Popover>
                                         }>
-                                        <Button  variant="secondary mt-2">Popover on Start</Button>
+                                        <Button  variant="gray mt-2">Popover on Start</Button>
                                     </OverlayTrigger>
                                 </div>
                             </Tab.Pane>  
                             <Tab.Pane eventKey="second" className={toggleState === false ? "content  active-content" : "content"} id="content-Popover-code" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="section-block">
-<pre><code className="language-markup"> 
+<pre className="language-markup"><code className="language-markup"> 
 {`<div className="bd-example">
     <OverlayTrigger trigger="click" placement="right" overlay={
             <Popover id="popover-basic">

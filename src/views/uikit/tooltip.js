@@ -65,41 +65,41 @@ const Tooltips =() =>{
                                             Tooltip on top
                                         </Tooltip>
                                         }>
-                                        <Button variant="secondary mt-2">Tooltip on top</Button>
+                                        <Button variant="gray mt-2">Tooltip on top</Button>
                                     </OverlayTrigger>{' '}
                                     <OverlayTrigger  placement="right" overlay={
                                         <Tooltip >
                                             Tooltip on right
                                         </Tooltip>
                                         }>
-                                        <Button variant="secondary mt-2">Tooltip on right</Button>
+                                        <Button variant="gray mt-2">Tooltip on right</Button>
                                     </OverlayTrigger>{' '}
                                     <OverlayTrigger  placement="bottom" overlay={
                                         <Tooltip >
                                             Tooltip on bottom
                                         </Tooltip>
                                         }>
-                                        <Button variant="secondary mt-2">Tooltip on bottom</Button>
+                                        <Button variant="gray mt-2">Tooltip on bottom</Button>
                                     </OverlayTrigger>{' '}
                                     <OverlayTrigger  placement="left" overlay={
                                         <Tooltip >
                                             Tooltip on left
                                         </Tooltip>
                                         }>
-                                        <Button variant="secondary mt-2">Tooltip on left</Button>
+                                        <Button variant="gray mt-2">Tooltip on left</Button>
                                     </OverlayTrigger>{' '}
                                     <OverlayTrigger  placement="top" overlay={
                                         <Tooltip >
                                             <em>Tooltip</em> <u>with</u> <b>HTML</b> 
                                         </Tooltip>
                                         }>
-                                        <Button variant="secondary mt-2">Tooltip with HTML</Button>
+                                        <Button variant="gray mt-2">Tooltip with HTML</Button>
                                     </OverlayTrigger>
                                     </div>
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="second" className={toggleState === false ? "content  active-content" : "content"} id="content-Tooltips-code" role="tabpanel" aria-labelledby="typo-output">
                                     <div className="section-block">
-<pre><code className="language-markup">
+<pre className="language-markup"><code className="language-markup">
 {`<div className="bd-example tooltip-demo">
     <OverlayTrigger placement="top" overlay={
         <Tooltip >

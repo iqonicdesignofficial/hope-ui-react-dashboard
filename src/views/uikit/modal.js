@@ -192,7 +192,7 @@ const Modals =() =>{
                             </Tab.Pane>
                             <Tab.Pane eventKey="second" className={toggleState === false ? "content  active-content" : "content"} id="content-Modal-code" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="section-block">
-<pre><code className="language-markup">
+<pre className="language-markup"><code className="language-markup">
 {`<div className="bd-example">
     <div className="d-flex justify-content-between flex-wrap">
         <Button  variant="primary mt-2" onClick={handleShow}>

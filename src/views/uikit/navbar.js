@@ -108,17 +108,22 @@ const Navbars =() =>{
                                                         <Nav.Item>
                                                             <Nav.Link className=" active" aria-current="page" href="#">Home</Nav.Link>
                                                         </Nav.Item>
-                                                        <Nav.Item>
-                                                            <Nav.Link href="#">Link</Nav.Link>
-                                                        </Nav.Item>
-                                                        <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-                                                            <NavDropdown.Item href="#">Action</NavDropdown.Item>
-                                                            <NavDropdown.Item href="#">Another action</NavDropdown.Item>
-                                                            <NavDropdown.Item href="#">Something</NavDropdown.Item>
-                                                            <NavDropdown.Divider />
-                                                            <NavDropdown.Item href="#">Something else here</NavDropdown.Item>
-                                                        </NavDropdown>
+                                                        <Nav.Item as='li'>
+                                                            <Nav.Link href="#" className='text-white'>Link</Nav.Link>
+                                                        </Nav.Item> 
+                                                        <NavDropdown title="Dropdown" id="collasible-nav-dropdown" className='text-white'>
+                                                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                                                        <NavDropdown.Item href="#action/3.2">
+                                                          Another action
+                                                        </NavDropdown.Item>
+                                                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                                                        <NavDropdown.Divider />
+                                                        <NavDropdown.Item href="#action/3.4">
+                                                          Separated link
+                                                        </NavDropdown.Item>
+                                                      </NavDropdown>
                                                     </Nav>
+                                                  
                                                 </Navbar.Collapse>
                                             </Container>
                                         </Navbar>
@@ -176,7 +181,7 @@ const Navbars =() =>{
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="second"  id="content-Navbar-code" className={toggleState === false ? "content  active-content" : "content"} role="tabpanel" aria-labelledby="typo-output">
                                     <div className="section-block">
-<pre><code className="language-markup">
+<pre className="language-markup"><code className="language-markup">
 {`<div className="bd-example">
     <Navbar bg="light" expand="lg" className="navbar-light">
         <Container fluid>

@@ -72,7 +72,7 @@ const Breadcrumbs =() =>{
                                             <Breadcrumb.Item as="li" href="/">Home</Breadcrumb.Item>
                                             <Breadcrumb.Item as="li" className="active" aria-current="page">Library</Breadcrumb.Item>
                                         </Breadcrumb>
-                                    </Nav>
+                                    </Nav>  
                                     
                                     <Nav aria-label="breadcrumb">
                                         <Breadcrumb as="ol">
@@ -87,7 +87,7 @@ const Breadcrumbs =() =>{
                                             <Breadcrumb.Item as="li" className="active" aria-current="page">Library</Breadcrumb.Item>
                                         </Breadcrumb>
                                     </Nav>
-                                    <Nav style={{bsBreadcrumbDivider: "url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;)"}}
+                                    <Nav style={{bsBreadcrumbDivider:"url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;)"}}
                                         aria-label="breadcrumb">
                                         <Breadcrumb as="ol" className="mb-0">
                                             <Breadcrumb.Item as="li" href="/">Home</Breadcrumb.Item>
@@ -98,7 +98,7 @@ const Breadcrumbs =() =>{
                             </Tab.Pane>
                             <Tab.Pane eventKey="second" className={toggleState === false ? "content  active-content" : "content"} id="content-Breadcrumb-code" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="section-block">
-<pre><code className="language-markup"> 
+<pre className="language-markup"><code className="language-markup"> 
 {`<div className="bd-example">
     <Nav aria-label="breadcrumb">
         <Breadcrumb as="ol">

@@ -147,7 +147,7 @@ const OffCanvass =() =>{
                             </Tab.Pane>
                             <Tab.Pane eventKey="second" className={toggleState === 2 ? "content  active-content" : "content"} id="content-Offcanvas-code" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="section-block">
-<pre><code className="language-markup"> 
+<pre className="language-markup"><code className="language-markup"> 
 {`<div className="bd-example">
     <Button variant="primary me-3 mb-3" onClick={handleShow5}>
         Toggle top offcanvas

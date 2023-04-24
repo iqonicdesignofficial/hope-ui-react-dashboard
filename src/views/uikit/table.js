@@ -176,6 +176,11 @@ const Tables =() =>{
                                             <td>Cell</td>
                                             <td>Cell</td>
                                         </tr>
+                                        <tr className='table-gray'>
+                                        <th scope='row'>Gray</th>
+                                        <td>cell</td>
+                                        <td>celll</td>
+                                        </tr>
                                         </tbody>
                                     </Table>
                                 </div>
@@ -213,7 +218,7 @@ const Tables =() =>{
                             </Tab.Pane>
                             <Tab.Pane eventKey="second" className={toggleState === false ? "content  active-content" : "content"} id="content-table-code" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="section-block">
-<pre><code className="language-markup">
+<pre className="language-markup"><code className="language-markup">
 {`<div className="bd-example table-responsive">
     <Table className="table-striped">
         <thead>

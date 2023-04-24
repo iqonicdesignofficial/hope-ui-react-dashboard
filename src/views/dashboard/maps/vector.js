@@ -1,6 +1,6 @@
 import React from 'react'
 import Card from '../../../components/Card'
-import {Row,Col} from 'react-bootstrap'
+import { Row, Col } from 'react-bootstrap'
 
 //leaflet
 import Leaflet from '../../../components/leaflet';
@@ -18,7 +18,7 @@ const Vector = () => {
                             </div>
                         </Card.Header>
                         <Card.Body>
-                            <Leaflet id="chart-map-column-04" className="custom-chart"/>
+                            <Leaflet id="chart-map-column-04" className="custom-chart" />
                         </Card.Body>
                     </Card>
                 </Col>

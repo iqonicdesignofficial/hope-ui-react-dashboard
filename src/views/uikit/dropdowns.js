@@ -63,7 +63,7 @@ const DropDowns =() =>{
                                 <div className="bd-example">
                                     <div className="btn-group w-100 align-items-center justify-content-between flex-wrap">
                                         <Dropdown>
-                                            <Dropdown.Toggle as={Button} variant="secondary" size="sm" type="button" id="dropdownMenuButtonSM">
+                                            <Dropdown.Toggle as={Button} variant="gray" size="sm" type="button" id="dropdownMenuButtonSM">
                                                 Dropdown button
                                             </Dropdown.Toggle>
                                             <Dropdown.Menu >
@@ -76,7 +76,7 @@ const DropDowns =() =>{
                                             </Dropdown.Menu>
                                         </Dropdown>
                                         <Dropdown>
-                                            <Dropdown.Toggle as={Button} variant="secondary" type="button" id="dropdownMenuButton ">
+                                            <Dropdown.Toggle as={Button} variant="gray" type="button" id="dropdownMenuButton ">
                                             Dropdown button
                                             </Dropdown.Toggle>
                                             <Dropdown.Menu>
@@ -89,7 +89,7 @@ const DropDowns =() =>{
                                             </Dropdown.Menu>
                                         </Dropdown>
                                         <Dropdown>
-                                            <Dropdown.Toggle variant="secondary " size="lg" type="button" id="dropdownMenuButtonLG">
+                                            <Dropdown.Toggle variant="gray " size="lg" type="button" id="dropdownMenuButtonLG">
                                                 Dropdown button
                                             </Dropdown.Toggle>
                                             <Dropdown.Menu >
@@ -174,7 +174,7 @@ const DropDowns =() =>{
                                 <div className="bd-example">
                                     <Dropdown drop={'end'} as={ButtonGroup} className=" w-100 align-items-center justify-content-between flex-wrap">
                                         <div className="dropend">
-                                            <Dropdown.Toggle as={Button} variant="secondary" type="button" id="dropendMenuButton" >
+                                            <Dropdown.Toggle as={Button} variant="gray" type="button" id="dropendMenuButton" >
                                             Dropend button
                                             </Dropdown.Toggle>
                                             <Dropdown.Menu >
@@ -187,7 +187,7 @@ const DropDowns =() =>{
                                             </Dropdown.Menu>
                                         </div>
                                         <Dropdown drop={'up'}>
-                                            <Dropdown.Toggle as={Button} variant="secondary" type="button" id="dropupMenuButton">
+                                            <Dropdown.Toggle as={Button} variant="gray" type="button" id="dropupMenuButton">
                                             Dropup button
                                             </Dropdown.Toggle>
                                             <Dropdown.Menu >
@@ -200,7 +200,7 @@ const DropDowns =() =>{
                                             </Dropdown.Menu>
                                         </Dropdown>
                                         <Dropdown drop={'start'}>
-                                            <Dropdown.Toggle as={Button} variant="secondary" type="button" id="dropstartMenuButton" >
+                                            <Dropdown.Toggle as={Button} variant="gray" type="button" id="dropstartMenuButton" >
                                             Dropstart button
                                             </Dropdown.Toggle>
                                             <Dropdown.Menu >
@@ -217,7 +217,7 @@ const DropDowns =() =>{
                                 <div className="bd-example">
                                     <div className="btn-group">
                                     <Dropdown drop={'end'}>
-                                        <Dropdown.Toggle as={Button} variant="secondary" type="button" id="dropdownRightMenuButton" >
+                                        <Dropdown.Toggle as={Button} variant="gray" type="button" id="dropdownRightMenuButton" >
                                         End-aligned menu
                                         </Dropdown.Toggle>
                                         <Dropdown.Menu className="dropdown-menu">
@@ -233,7 +233,7 @@ const DropDowns =() =>{
                             </Tab.Pane>
                             <Tab.Pane eventKey="second" className={toggleState === false ? "content  active-content" : "content"} id="content-dropdown-code" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="section-block">
-<pre><code className="language-markup">
+<pre className="language-markup"><code className="language-markup">
 {`<div className="bd-example">
     <div className="btn-group w-100 align-items-center justify-content-between flex-wrap">
         <Dropdown>

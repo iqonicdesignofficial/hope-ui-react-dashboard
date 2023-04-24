@@ -122,7 +122,7 @@ const Typographys =() =>{
                             </Tab.Pane>
                             <Tab.Pane eventKey="second" className={toggleState === false ? "content  active-content" : "content"} id="content-typo-code" role="tabpanel" aria-labelledby="typo-code">
                                 <div className="section-block">
-<pre><code className="language-markup">
+<pre className="language-markup"><code className="language-markup">
 {`<div className="bd-example">
     <p className="display-1">Display 1</p>
     <p className="display-2">Display 2</p>

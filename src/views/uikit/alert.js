@@ -40,7 +40,7 @@ const Alerts =() =>{
                         </Card.Body>
                     </Card>
                 </div>
-                <Card className="iq-document-card iq-doc-head">
+                <Card className="iq-document-card">
                     <Tab.Container defaultActiveKey="first">
                         <div className="d-flex justify-content-end">
                             <Nav as="ul" className=" nav-tabs nav-tunnel nav-slider" >
@@ -167,7 +167,7 @@ const Alerts =() =>{
                             </Tab.Pane>
                             <Tab.Pane eventKey="second" className={toggleState === false ? "content  active-content" : "content"} id="content-accordion-code" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="section-block">
-<pre><code className="language-markup">
+<pre className="language-markup"><code className="language-markup">
 {` <div className="bd-example">                
     <Alert variant="primary alert-solid  alert-dismissible fade show" role="alert" show={showA1} onClose={() => setShowA1(false)} dismissible>
         A simple primary alert with <Link to="#" className="alert-link">an example link</Link>. Give it a click if you like.

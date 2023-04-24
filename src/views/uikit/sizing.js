@@ -94,7 +94,7 @@ const Sizings =() =>{
                             </Tab.Pane>
                             <Tab.Pane eventKey="second" className={toggleState === false ? "content  active-content" : "content"} id="content-sizing-code" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="section-block">
-<pre><code className="language-markup">
+<pre className="language-markup"><code className="language-markup">
 {`<div className="bd-example">
     <div className="mb-3">
         <Form.Control className=" form-control-lg" type="text" placeholder=".form-control-lg" aria-label=".form-control-lg example"/>

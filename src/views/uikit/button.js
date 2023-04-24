@@ -93,6 +93,7 @@ const Buttons =() =>{
                                     <Button type="button" variant="light">Light</Button>{' '}
                                     <Button type="button" variant="dark">Dark</Button>{' '}
                                     <Button type="button" variant="link">Link</Button>{' '}
+                                    <Button type='button' variant='gray'>Gray</Button>
                                 </div>
                                 <div className="bd-example">                
                                     <Button type="button" variant="outline-primary">Primary</Button>{' '}
@@ -103,6 +104,7 @@ const Buttons =() =>{
                                     <Button type="button" variant="outline-info">Info</Button>{' '}
                                     <Button type="button" variant="outline-light">Light</Button>{' '}
                                     <Button type="button" variant="outline-dark">Dark</Button>{' '}
+                                    <Button type='button' variant='outline-gray'>Gray</Button>
                                 </div>
                                 <div className="bd-example">
                                     <Button type="button" variant="primary mr-2" size="xs">Ex small</Button>{' '}
@@ -113,16 +115,17 @@ const Buttons =() =>{
                                 <div className="bd-example">
                                     <Button type="button" variant="soft-info">Info</Button>{' '}
                                     <Button type="button" variant="soft-primary">Primary</Button>{' '}
-                                    <Button type="button" variant="soft-success">Success</Button>{' '}
+                                    <Button type="button" variant="soft-secondary">Success</Button>{' '}
                                     <Button type="button" variant="soft-danger">Danger</Button>{' '}
                                     <Button type="button" variant="soft-warning">Warning</Button>{' '}
                                     <Button type="button" variant="soft-light">Light</Button>{' '}
                                     <Button type="button" variant="soft-dark">Dark</Button>{' '}
+                                    <Button type="button" variant="soft-gray">Gray</Button>{' '}
                                 </div>
                             </Tab.Pane>
                             <Tab.Pane eventKey="second" className={toggleState === false ? "content  active-content" : "content"} id="content-Button-code" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="section-block">
-<pre><code className="language-markup">
+<pre className="language-markup"><code className="language-markup">
 {`<div className="bd-example">
     <Button variant="primary">Default</Button>
     <Button variant="primary rounded-pill">Rounded</Button>

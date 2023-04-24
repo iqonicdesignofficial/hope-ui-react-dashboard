@@ -463,7 +463,7 @@ const Pricing = () => {
                                             If you will take advantage of the above-listed amenities, classes, and services, Life Time's membership fees may be worth the cost.
                                         </p>
                                         <div className="mb-5 pt-2">
-                                            <p className="line-around text-secondary mb-0"><span className="line-around-1">Included Features</span></p>
+                                            <p className="line-around text-gray mb-0"><span className="line-around-1">Included Features</span></p>
                                         </div>
                                         <Row>
                                             <Col lg="6" md="6" sm="12" className="">
@@ -515,7 +515,7 @@ const Pricing = () => {
                                                 </Card.Title>
                                                 <small className="ms-1 text-muted fw-light">USD</small>
                                             </div>
-                                            <div className="font-medium text-center text-secondary">
+                                            <div className="font-medium text-center text-gray">
                                                 <div>No monthly subscription,</div>
                                                 <div>you only pay once.</div>
                                             </div>
@@ -531,7 +531,7 @@ const Pricing = () => {
                             <Card className=" my-5">
                                 <Card.Body>
                                     <h2 className="my-0 fw-normal mb-4">Enterprise</h2>
-                                    <Card.Title as="h1" className=" pricing-card-title mb-0">$29 <small className="text-secondary"> / month</small></Card.Title>
+                                    <Card.Title as="h1" className=" pricing-card-title mb-0">$29 <small className="text-gray"> / month</small></Card.Title>
                                     <p className="mb-0">billed yearly</p>
                                     <p>$79.9 billed monthly</p>
                                     <ul className="list-unstyled my-3 p-0">
@@ -549,7 +549,7 @@ const Pricing = () => {
                                 <Card.Body>
                                     <h2><span className="badge rounded-pill bg-soft-primary mb-4"><small className="text-uppercase px-3">Popular</small></span></h2>
                                     <h2 className="my-0 fw-normal mb-4">Pro</h2>
-                                    <Card.Title as="h1" className=" pricing-card-title mb-0">$15<small className="text-secondary"> / month</small></Card.Title>
+                                    <Card.Title as="h1" className=" pricing-card-title mb-0">$15<small className="text-gray"> / month</small></Card.Title>
                                     <p className="mb-0">billed yearly</p>
                                     <p>$55.0 billed monthly</p>
                                     <ul className="list-unstyled my-3 p-0">
@@ -566,7 +566,7 @@ const Pricing = () => {
                             <Card className=" my-5">
                                 <Card.Body>
                                     <h2 className="my-0 fw-normal mb-4">Premium</h2>
-                                    <Card.Title as="h1" className=" pricing-card-title mb-0">$49 <small className="text-secondary"> / month</small></Card.Title>
+                                    <Card.Title as="h1" className=" pricing-card-title mb-0">$49 <small className="text-gray"> / month</small></Card.Title>
                                     <p className="mb-0">billed yearly</p>
                                     <p>$99.9 billed monthly</p>
                                     <ul className="list-unstyled my-3 p-0">

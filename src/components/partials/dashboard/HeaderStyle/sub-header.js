@@ -1,7 +1,6 @@
-import React, {useEffect} from 'react'
+import React, {memo,Fragment} from 'react'
 import { Row,Col,Container} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import {bindActionCreators} from "redux"
 //img
 import topHeader from '../../../../assets/images/dashboard/top-header.png'
 import topHeader1 from '../../../../assets/images/dashboard/top-header1.png'
@@ -10,43 +9,12 @@ import topHeader3 from '../../../../assets/images/dashboard/top-header3.png'
 import topHeader4 from '../../../../assets/images/dashboard/top-header4.png'
 import topHeader5 from '../../../../assets/images/dashboard/top-header5.png'
 
-// store
-import {NavbarstyleAction, getDirMode, SchemeDirAction,  getNavbarStyleMode, getSidebarActiveMode, SidebarActiveStyleAction, getDarkMode, ModeAction,  SidebarColorAction, getSidebarColorMode, getSidebarTypeMode} from '../../../../store/setting/setting'
-import {connect} from "react-redux"
 
-const mapStateToProps = (state) => {
-    return {
-        darkMode: getDarkMode(state),
-        schemeDirMode: getDirMode(state),
-        sidebarcolorMode: getSidebarColorMode(state),
-        sidebarTypeMode: getSidebarTypeMode(state),
-        sidebaractivestyleMode: getSidebarActiveMode(state),
-        navbarstylemode: getNavbarStyleMode(state),
-    };
-}
-const mapDispatchToProps = dispatch => ({
-    ...bindActionCreators(
-        {
-            ModeAction,
-            SchemeDirAction,
-            SidebarColorAction,
-            SidebarActiveStyleAction,
-            NavbarstyleAction,
-        },
-        dispatch
-    )
-})
+const SubHeader = memo((props) => {
 
 
-const SubHeader = (props) => {
-
-    useEffect(() => {
-        // navbarstylemode
-       const navbarstyleMode = sessionStorage.getItem('Navbarstyle-mode');
-       props.NavbarstyleAction(navbarstyleMode);
- })
     return (
-        <>
+        <Fragment>
             <div className="iq-navbar-header" style={{height: "215px"}}>
                 <Container fluid className=" iq-container">
                     <Row>
@@ -79,8 +47,8 @@ const SubHeader = (props) => {
                     <img src={topHeader5} alt="header" className="theme-color-pink-img img-fluid w-100 h-100 animated-scaleX"/>
                 </div>
             </div>
-        </>
+        </Fragment>
     )
-}
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(SubHeader)
+export default SubHeader

@@ -1,9 +1,9 @@
-import React,{useState, useEffect} from 'react'
+import {useState,memo,Fragment} from 'react'
 import {Row,Col,Image,Form,Button,InputGroup,FormControl} from 'react-bootstrap'
 import {Card} from 'react-bootstrap'
 import FsLightbox from 'fslightbox-react';
 
-import {bindActionCreators} from "redux"
+// import {bindActionCreators} from "redux"
 
 import {Link} from 'react-router-dom'
 // img
@@ -35,60 +35,11 @@ import avatars5 from '../../../assets/images/avatars/05.png'
 import ShareOffcanvas from '../../../components/partials/components/shareoffcanvas'
 // Circularprogressbar
 import Circularprogressbar from '../../../components/circularprogressbar'
-// store
-import {NavbarstyleAction, getDirMode, getcustomizerMode, getcustomizerprimaryMode,  getcustomizerinfoMode,  SchemeDirAction, ColorCustomizerAction,  getNavbarStyleMode, getSidebarActiveMode, SidebarActiveStyleAction, getDarkMode, ModeAction,  SidebarColorAction, getSidebarColorMode, getSidebarTypeMode} from '../../../store/setting/setting'
-import {connect} from "react-redux"
 
-const mapStateToProps = (state) => {
-   return {
-       darkMode: getDarkMode(state),
-       customizerMode: getcustomizerMode(state),
-       cololrinfomode: getcustomizerinfoMode(state),
-       colorprimarymode: getcustomizerprimaryMode(state),
-       schemeDirMode: getDirMode(state),
-       sidebarcolorMode: getSidebarColorMode(state),
-       sidebarTypeMode: getSidebarTypeMode(state),
-       sidebaractivestyleMode: getSidebarActiveMode(state),
-       navbarstylemode: getNavbarStyleMode(state),
-   };
-}
-const mapDispatchToProps = dispatch => ({
-   ...bindActionCreators(
-       {
-           ModeAction,
-           SchemeDirAction,
-           SidebarColorAction,
-           SidebarActiveStyleAction,
-           NavbarstyleAction,
-           ColorCustomizerAction,
-       },
-       dispatch
-   )
-})
-
-
-
-const Widgetcard = (props) => {
-    useEffect(() => {
-        //   customizer
-        const colorcustomizerMode = sessionStorage.getItem('color-customizer-mode');
-        const colorcustomizerinfoMode = sessionStorage.getItem('colorcustominfo-mode');
-        const colorcustomizerprimaryMode = sessionStorage.getItem('colorcustomprimary-mode');
-        if(colorcustomizerMode===null){
-            props.ColorCustomizerAction(props.customizerMode, props.cololrinfomode, props.colorprimarymode);
-            document.documentElement.style.setProperty('--bs-info', props.cololrinfomode );
-            console.log("widget1",props.colorprimarymode )
-           
-        }
-        else{
-            props.ColorCustomizerAction(colorcustomizerMode, colorcustomizerinfoMode, colorcustomizerprimaryMode);
-            document.documentElement.style.setProperty('--bs-info', colorcustomizerinfoMode);
-            console.log("widget2",props.colorprimarymode )
-        }
-     })
+const Widgetcard = memo((props) => {
     const [toggler, setToggler] = useState(false);
     return (
-        <>
+        <Fragment>
           <FsLightbox
                 toggler={ toggler }
                 sources={ [icon4,shap2,icon8,shap4,icon2,shap6,icon5,shap4,icon1] }
@@ -644,8 +595,10 @@ const Widgetcard = (props) => {
                     </Card>
                 </Col>
             </Row>
-        </>
+        </Fragment>
     )
 }
+)
 
-export default connect(mapStateToProps, mapDispatchToProps)(Widgetcard)
+Widgetcard.displayName="Widgetcard"
+export default Widgetcard

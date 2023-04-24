@@ -1,4 +1,4 @@
-import React, {useState}from 'react'
+import React, {Fragment, useState}from 'react'
 import FsLightbox from 'fslightbox-react';
 
 import {Row,Col,Image,Form,Nav,Dropdown,Tab} from 'react-bootstrap'
@@ -36,9 +36,9 @@ import pages2 from '../../../assets/images/pages/02-page.png'
 import ShareOffcanvas from '../../../components/partials/components/shareoffcanvas'
 
 const UserProfile =() =>{
-   const [toggler, setToggler] = useState(false);
+   const [toggler, setToggler] = useState();
   return(
-      <>
+      <Fragment>
          <FsLightbox
                   toggler={ toggler }
                   sources={ [icon4,shap2,icon8,shap4,icon2,shap6,icon5,shap4,icon1] }
@@ -885,7 +885,7 @@ const UserProfile =() =>{
                </Col>
             </Row>
          </Tab.Container>
-      </>
+      </Fragment>
   )
 
 }

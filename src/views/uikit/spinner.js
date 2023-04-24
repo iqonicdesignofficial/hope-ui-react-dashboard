@@ -89,7 +89,7 @@ const Spinners =() =>{
                                 <Spinner animation="grow" className="text-primary" role="status">
                                     <span className="visually-hidden">Loading...</span>
                                 </Spinner>
-                                <Spinner animation="grow" className="text-secondary" role="status">
+                                <Spinner animation="grow" className="text-gray" role="status">
                                     <span className="visually-hidden">Loading...</span>
                                 </Spinner>
                                 <Spinner animation="grow" className="text-success" role="status">
@@ -156,7 +156,7 @@ const Spinners =() =>{
                         </Tab.Pane>
                         <Tab.Pane eventKey="second" className={toggleState === false ? "content  active-content" : "content"} id="content-Spinners-code" role="tabpanel" aria-labelledby="typo-output">
                             <div className="section-block">
-<pre><code className="language-markup">
+<pre className="language-markup"><code className="language-markup">
 {`<div className="bd-example">                
     <Spinner animation="border" variant="primary" role="status">
         <span className="visually-hidden">Loading...</span>
@@ -187,7 +187,7 @@ const Spinners =() =>{
     <Spinner animation="grow" className="text-primary" role="status">
         <span className="visually-hidden">Loading...</span>
     </Spinner>
-    <Spinner animation="grow" className="text-secondary" role="status">
+    <Spinner animation="grow" className="text-gray" role="status">
         <span className="visually-hidden">Loading...</span>
     </Spinner>
     <Spinner animation="grow" className="text-success" role="status">

@@ -63,29 +63,29 @@ const ButtonGroups =() =>{
                                 <div className="bd-example">
                                     <div className="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                                         <ButtonGroup className="me-2" role="group" aria-label="First group">
-                                            <Button type="button" variant="secondary">1</Button>
-                                            <Button type="button" variant="secondary">2</Button>
-                                            <Button type="button" variant="secondary">3</Button>
-                                            <Button type="button" variant="secondary">4</Button>
+                                            <Button type="button" variant="gray">1</Button>
+                                            <Button type="button" variant="gray">2</Button>
+                                            <Button type="button" variant="gray">3</Button>
+                                            <Button type="button" variant="gray">4</Button>
                                         </ButtonGroup>
                                         <div className="btn-group me-2" role="group" aria-label="Second group">
-                                            <Button type="button" variant="secondary">5</Button>
-                                            <Button type="button" variant="secondary">6</Button>
-                                            <Button type="button" variant="secondary">7</Button>
+                                            <Button type="button" variant="gray">5</Button>
+                                            <Button type="button" variant="gray">6</Button>
+                                            <Button type="button" variant="gray">7</Button>
                                         </div>
                                         <div className="btn-group" role="group" aria-label="Third group">
-                                            <Button type="button" variant="secondary">8</Button>
+                                            <Button type="button" variant="gray">8</Button>
                                         </div>
                                     </div>
                                 </div>
-                                <div className="bd-example">
+                                <div className="bd-example mt-2">
                                     <div className="btn-group" role="group" aria-label="Basic example">
                                         <Button type="button" variant="primary">Home</Button>
                                         <Button type="button" variant="outline-primary">Profile</Button>
                                         <Button type="button" variant="outline-primary">Message</Button>
                                     </div>
                                 </div>
-                                <div className="bd-example">
+                                <div className="bd-example mt-2">
                                     <div className="btn-group-vertical" role="group" aria-label="Basic example">
                                         <Button type="button" variant="primary">Home</Button>
                                         <Button type="button" variant="outline-primary">Profile</Button>
@@ -95,7 +95,7 @@ const ButtonGroups =() =>{
                             </Tab.Pane>
                             <Tab.Pane eventKey="second" className={toggleState === false ? "content  active-content" : "content"} id="content-Buttongroup-code" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="section-block">
-<pre><code className="language-markup">
+<pre className="language-markup"><code className="language-markup">
 {`<div className="bd-example">
     <div className="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
         <ButtonGroup className="me-2" role="group" aria-label="First group">

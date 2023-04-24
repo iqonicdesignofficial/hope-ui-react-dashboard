@@ -34,18 +34,11 @@ const HeaderStyle3 = () => {
             <Navbar expand="lg" variant="light" className="nav iq-navbar">
                 <Container fluid className="navbar-inner">
                        <MobildeOffcanvas/>
-                        <Link to="/dashboard" className="logo-center navbar-brand col-md-3 col-lg-3">
+                        <Link to="/dashboard" className="logo-center navbar-brand ">
                             <Logo color={true} />
                             <h4 className="logo-title">Hope UI</h4>
                         </Link>
-                        <Navbar.Toggle aria-controls="navbarSupportedContent">
-                            <span className="navbar-toggler-icon">
-                                <span className="navbar-toggler-bar bar1 mt-2"></span>
-                                <span className="navbar-toggler-bar bar2"></span>
-                                <span className="navbar-toggler-bar bar3"></span>
-                            </span>
-                        </Navbar.Toggle>
-                        <div className="">
+    {/*<div className="">*/}
                             <div className="input-group search-input">
                                 <span className="input-group-text" id="search-input">
                                     <svg width="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -55,7 +48,15 @@ const HeaderStyle3 = () => {
                                 </span>
                                 <input type="search" className="form-control" placeholder="Search..."/>
                             </div>
-                        </div>       
+                        {/*</div> */}
+                        <Navbar.Toggle aria-controls="navbarSupportedContent">
+                            <span className="navbar-toggler-icon">
+                                <span className="navbar-toggler-bar bar1 mt-2"></span>
+                                <span className="navbar-toggler-bar bar2"></span>
+                                <span className="navbar-toggler-bar bar3"></span>
+                            </span>
+                        </Navbar.Toggle>
+                             
                         <Navbar.Collapse  id="navbarSupportedContent" className="col-md-auto">
                             <Nav as="ul" className=" ms-auto mb-2 mb-lg-0 align-items-center">
                                 <Dropdown as="li" className="nav-item">

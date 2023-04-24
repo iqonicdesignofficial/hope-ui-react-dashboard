@@ -89,7 +89,7 @@ const AFloatingLables =() =>{
                             </Tab.Pane>
                             <Tab.Pane eventKey="second" className={toggleState === false ? "content  active-content" : "content"} id="content-alternetfloat-code" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="section-block">
-<pre><code className="language-markup">
+<pre className="language-markup"><code className="language-markup">
 {`<div className="bd-example">
     <Form.Floating className=" custom-form-floating custom-form-floating-sm form-group mb-3">
         <Form.Control type="email" className="" id="floatingInput5" autoComplete="username email"  placeholder="Place Holder"/>

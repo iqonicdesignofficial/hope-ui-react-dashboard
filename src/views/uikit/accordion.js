@@ -86,7 +86,7 @@ const Accordions =() =>{
                             </Tab.Pane>
                             <Tab.Pane eventKey="second" className={toggleState === false ? 'active' : ''} id="content-accordion-code" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="section-block">
-<pre><code className="language-markup">
+<pre className="language-markup"><code className="language-markup">
 {`<div className="bd-example">
 <Accordion defaultActiveKey="0">
     <Accordion.Item eventKey="0">

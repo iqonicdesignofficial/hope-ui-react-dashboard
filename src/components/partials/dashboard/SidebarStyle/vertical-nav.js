@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext,memo,Fragment} from 'react'
 import { Link, useLocation} from 'react-router-dom'
 import {Accordion, useAccordionButton, AccordionContext} from 'react-bootstrap'
 
@@ -20,12 +20,13 @@ function CustomToggle({ children, eventKey, onClick }) {
     );
   }
 
-const VerticalNav = () => {
+const VerticalNav = memo((props) => {
     const [activeMenu, setActiveMenu] = useState(false)
+    const [active, setActive] = useState('')
     //location
     let location = useLocation();
     return (
-       <>
+       <Fragment>
             <Accordion as="ul" className="navbar-nav iq-main-menu">
                 <li className="nav-item static-item">
                     <Link className="nav-link static-item disabled" to="#" tabIndex="-1">
@@ -33,7 +34,7 @@ const VerticalNav = () => {
                         <span className="mini-icon">-</span>
                     </Link>
                 </li>
-                <li className="nav-item">
+                <li className={`${location.pathname === '/dashboard' ? 'active' : ''} nav-item `}>
                     <Link className={`${location.pathname === '/dashboard' ? 'active' : ''} nav-link `} aria-current="page" to="/dashboard" onClick={() => {}}>
                         <i className="icon">
                             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -44,7 +45,7 @@ const VerticalNav = () => {
                         <span className="item-name">Dashboard</span>
                     </Link>
                 </li>
-                <Accordion.Item as="li" eventKey="horizontal-menu" bsPrefix="nav-item" >
+                <Accordion.Item as="li" eventKey="horizontal-menu" bsPrefix={`nav-item ${active === 'menustyle' ? 'active' : ''} `} onClick={() => setActive('menustyle')}  >
                     <CustomToggle eventKey="horizontal-menu" onClick={(activeKey) => setActiveMenu(activeKey)}>
                     <i className="icon">
                             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -140,7 +141,7 @@ const VerticalNav = () => {
                             <circle cx="18" cy="11.8999" r="1" fill="currentColor"></circle>
                         </svg>
                         </i>
-                        <span className="item-name">Design System<span className="badge rounded-pill bg-success">UI</span></span>
+                        <span className="item-name">Design System<span className="badge rounded-pill bg-success ms-3">UI</span></span>
                     </Link>
                 </li>
                 <li><hr className="hr-horizontal"/></li>
@@ -150,7 +151,7 @@ const VerticalNav = () => {
                         <span className="mini-icon">-</span>
                     </Link>
                 </li>
-                <Accordion.Item as="li" eventKey="sidebar-special" bsPrefix="nav-item">
+                <Accordion.Item as="li" eventKey="sidebar-special" bsPrefix={`nav-item ${active === 'special' ? 'active' : ''} `} onClick={() => setActive('special')}>
                 <CustomToggle eventKey="sidebar-special" onClick={(activeKey) => setActiveMenu(activeKey)}>
                         <i className="icon">
                             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -220,6 +221,20 @@ const VerticalNav = () => {
                                 </Link>
                             </li>
                             <li className="nav-item">
+                            <Link className={`${location.pathname === '/dashboard/special-pages/rtl-support' ? 'active' : ''} nav-link`} to="/dashboard/special-pages/rtl-support">
+                                <i className="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
+                                        <g>
+                                        <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
+                                        </g>
+                                    </svg>
+                                </i>
+                                <i className="sidenav-mini-icon"> RS </i>
+                                <span className="item-name">RTL Support</span>
+                            </Link>
+                        </li>
+
+                            <li className="nav-item">
                                 <Link className={`${location.pathname === '/dashboard/special-pages/timeline' ? 'active' : ''} nav-link`} to="/dashboard/special-pages/timeline">
                                     <i className="icon">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24" fill="currentColor">
@@ -235,7 +250,7 @@ const VerticalNav = () => {
                         </ul>
                     </Accordion.Collapse>
                 </Accordion.Item>
-                <Accordion.Item as="li" className={`${activeMenu === '0' ? 'active' : ''}`} eventKey="sidebar-auth"  bsPrefix="nav-item">
+                <Accordion.Item as="li" className={`${activeMenu === '0' ? 'active' : ''}`} eventKey="sidebar-auth"  bsPrefix={`nav-item ${active === 'auth' ? 'active' : ''} `} onClick={() => setActive('auth')}>
                     <CustomToggle eventKey="sidebar-auth" onClick={(activeKey) => setActiveMenu(activeKey)}>
                         <i className="icon">
                             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -320,7 +335,7 @@ const VerticalNav = () => {
                         </ul>
                     </Accordion.Collapse>
                 </Accordion.Item>
-                <Accordion.Item as="li" eventKey="sidebar-user" bsPrefix="nav-item">
+                <Accordion.Item as="li" eventKey="sidebar-user" bsPrefix={`nav-item ${active === 'user' ? 'active' : ''} `} onClick={() => setActive('user')}>
                     <CustomToggle eventKey="sidebar-user" onClick={(activeKey) => setActiveMenu(activeKey)}>
                         <i className="icon">
                             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -383,7 +398,7 @@ const VerticalNav = () => {
                         </ul>
                     </Accordion.Collapse>
                 </Accordion.Item>
-                <Accordion.Item as="li" eventKey="utilities-error" bsPrefix="nav-item">
+                <Accordion.Item as="li" eventKey="utilities-error" bsPrefix={`nav-item ${active === 'error' ? 'active' : ''} `} onClick={() => setActive('error')}>
                     <CustomToggle eventKey="utilities-error" active={activeMenu === 'utilities-error' ? true : false} onClick={(activeKey) => setActiveMenu(activeKey)}>
                         <i className="icon">
                             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -469,7 +484,7 @@ const VerticalNav = () => {
                         <span className="item-name">Components</span>
                     </Link>
                 </li>
-                <Accordion.Item as="li" eventKey="sidebar-widget" bsPrefix="nav-item">
+                <Accordion.Item as="li" eventKey="sidebar-widget" bsPrefix={` ${location.pathname === '/dashboard/widget/widgetbasic' || location.pathname === '/dashboard/widget/widgetchart' || location.pathname === '/dashboard/widget/widgetcard' ? 'active' : '' || active === 'widget' ? 'active' : ''} nav-item`} onClick={() => setActive('widget')}>
                     <CustomToggle eventKey="sidebar-widget" active={activeMenu === 'sidebar-widget' ? true : false} onClick={(activeKey) => setActiveMenu(activeKey)}>
                         <i className="icon">
                             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -528,7 +543,7 @@ const VerticalNav = () => {
                         </ul>
                     </Accordion.Collapse>
                 </Accordion.Item>
-                <Accordion.Item as="li" eventKey="sidebar-maps" bsPrefix="nav-item">
+                <Accordion.Item as="li" eventKey="sidebar-maps" bsPrefix={`nav-item ${active === 'maps' ? 'active' : ''} `} onClick={() => setActive('maps')} >
                 <CustomToggle eventKey="sidebar-maps" active={activeMenu === 'sidebar-maps' ? true : false} onClick={(activeKey) => setActiveMenu(activeKey)}>
                         <i className="icon">
                             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -574,7 +589,7 @@ const VerticalNav = () => {
                         </ul>
                     </Accordion.Collapse>
                 </Accordion.Item>
-                <Accordion.Item as="li" eventKey="sidebar-form" bsPrefix="nav-item">
+                <Accordion.Item as="li" eventKey="sidebar-form" bsPrefix={`nav-item ${active === 'form' ? 'active' : ''} `} onClick={() => setActive('form')}>
                  <CustomToggle eventKey="sidebar-form" active={activeMenu === 'sidebar-form' ? true : false} onClick={(activeKey) => setActiveMenu(activeKey)}>
                         <i className="icon">
                             <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -633,10 +648,10 @@ const VerticalNav = () => {
                         </ul>
                     </Accordion.Collapse>
                 </Accordion.Item>
-                <Accordion.Item as="li" eventKey="sidebar-table" bsPrefix="nav-item">
+                <Accordion.Item as="li" eventKey="sidebar-table" bsPrefix={`nav-item ${active === 'table' ? 'active' : ''} `} onClick={() => setActive('table')}>
                  <CustomToggle eventKey="sidebar-table" onClick={(activeKey) => setActiveMenu(activeKey)}>
                         <i className="icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
                                 <path d="M2 5C2 4.44772 2.44772 4 3 4H8.66667H21C21.5523 4 22 4.44772 22 5V8H15.3333H8.66667H2V5Z" fill="currentColor" stroke="currentColor"/>
                                 <path d="M6 8H2V11M6 8V20M6 8H14M6 20H3C2.44772 20 2 19.5523 2 19V11M6 20H14M14 8H22V11M14 8V20M14 20H21C21.5523 20 22 19.5523 22 19V11M2 11H22M2 14H22M2 17H22M10 8V20M18 8V20" stroke="currentColor"/>
                             </svg>
@@ -679,7 +694,7 @@ const VerticalNav = () => {
                         </ul>
                     </Accordion.Collapse>
                 </Accordion.Item>
-                <Accordion.Item as="li" eventKey="sidebar-icons" bsPrefix="nav-item mb-5">
+                <Accordion.Item as="li" eventKey="sidebar-icons" bsPrefix={`nav-item mb-5 ${active === 'icons' ? 'active' : ''} `} onClick={() => setActive('icons')}>
                 <CustomToggle eventKey="sidebar-icons" onClick={(activeKey) => setActiveMenu(activeKey)}>
                         <i className="icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" viewBox="0 0 24 24" fill="currentColor">
@@ -739,8 +754,8 @@ const VerticalNav = () => {
                     </Accordion.Collapse>
                 </Accordion.Item>
             </Accordion>
-       </>
+       </Fragment>
     )
-}
+})
 
 export default VerticalNav

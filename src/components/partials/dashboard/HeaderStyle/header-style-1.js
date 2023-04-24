@@ -1,8 +1,12 @@
-import React from 'react'
+import {memo,Fragment} from 'react'
+//React-bootstrap
 import { Navbar,Dropdown, Container} from 'react-bootstrap'
-// Container,Dropdown,Button
+
+// Container,Dropdown,Button,Card
+// import Card from '../../../Card'
 import { Link } from 'react-router-dom'
 import CustomToggle from '../../../dropdowns'
+
 // mobile-offcanvas
 import MobildeOffcanvas from '../../components/mobile-offcanvas'
 //Horizontal-nav
@@ -28,9 +32,14 @@ import shapes4 from '../../../../assets/images/shapes/04.png'
 import shapes5 from '../../../../assets/images/shapes/05.png'
 // logo
 import Logo from '../../components/logo'
-const HeaderStyle1 = () => {
+
+const HeaderStyle1 = memo(() => {
+    // const[show, setShow] = useState(true)
+
+   
     return (
-        <>   
+        
+        <Fragment>   
             <Navbar expand="xl" className="nav  iq-navbar">
                 <Container fluid className="navbar-inner">       
                     <MobildeOffcanvas/>
@@ -234,12 +243,13 @@ const HeaderStyle1 = () => {
                                         <Dropdown.Item href="https://templates.iqonic.design/hope-ui/react/build/auth/sign-in">Logout</Dropdown.Item>
                                     </Dropdown.Menu>
                                 </Dropdown>
+                      
                             </ul>
                         </Navbar.Collapse>
                     </Container>
                 </Navbar>
-        </>
+        </Fragment>
     )
-}
+})
 
 export default HeaderStyle1;

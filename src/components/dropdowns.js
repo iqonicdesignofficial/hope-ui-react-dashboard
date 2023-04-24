@@ -1,7 +1,7 @@
-import React from 'react'
+import {forwardRef} from 'react'
 import { Link} from 'react-router-dom'
 
-const CustomToggle = React.forwardRef(({ children,variant, onClick }, ref) => (
+const CustomToggle = forwardRef(({ children,variant, onClick }, ref) => (
     <Link
       to="/"
       ref={ref}
@@ -10,6 +10,7 @@ const CustomToggle = React.forwardRef(({ children,variant, onClick }, ref) => (
         onClick(e);
       }}
       className={variant}
+      style={{color:'unset'}}
     >
       {children}
       

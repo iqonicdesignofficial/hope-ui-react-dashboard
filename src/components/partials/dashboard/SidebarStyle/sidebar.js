@@ -1,110 +1,137 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,memo,Fragment} from 'react'
 import { Link } from 'react-router-dom'
 import VerticalNav from '../SidebarStyle/vertical-nav'
-import Scrollbar from 'smooth-scrollbar'
-import {bindActionCreators} from "redux"
+
+//scrollbar
+import Scrollbar from "smooth-scrollbar";
+
+// Import selectors & action from setting store
+import * as SettingSelector from "../../../../store/setting/selectors";
+
+// Redux Selector / Action
+import { useSelector } from "react-redux";
+import Logo from '../../components/logo';
+
 // import SidebarDark from '../../components/settingoffcanvas'
 
 // export const SidebarDark =() =>{
 
 // }
 
-// store
-import {NavbarstyleAction, getDirMode, SchemeDirAction,  getNavbarStyleMode, getSidebarActiveMode, SidebarActiveStyleAction, getDarkMode, ModeAction,  SidebarColorAction, getSidebarColorMode, getSidebarTypeMode} from '../../../../store/setting/setting'
-import {connect} from "react-redux"
 
-const mapStateToProps = (state) => {
-    return {
-        darkMode: getDarkMode(state),
-        schemeDirMode: getDirMode(state),
-        sidebarcolorMode: getSidebarColorMode(state),
-        sidebarTypeMode: getSidebarTypeMode(state),
-        sidebaractivestyleMode: getSidebarActiveMode(state),
-        navbarstylemode: getNavbarStyleMode(state),
+const Sidebar = memo((props) => {
+    const sidebarColor = useSelector(SettingSelector.sidebar_color);
+    const sidebarHide = useSelector(SettingSelector.sidebar_show); // array
+    const sidebarType = useSelector(SettingSelector.sidebar_type); // array
+    const sidebarMenuStyle = useSelector(SettingSelector.sidebar_menu_style);
+  
+    const minisidebar = () => {
+      document.getElementsByTagName("ASIDE")[0].classList.toggle("sidebar-mini");
     };
-}
-const mapDispatchToProps = dispatch => ({
-    ...bindActionCreators(
-        {
-            ModeAction,
-            SchemeDirAction,
-            SidebarColorAction,
-            SidebarActiveStyleAction,
-            NavbarstyleAction,
-        },
-        dispatch
-    )
-})
-
-
-const Sidebar = (props) => {
-    
-    
-    
-    useEffect(
-        () =>{
-            // sidebarcolormode
-            const sidebarcolorMode1 = sessionStorage.getItem('sidebarcolor-mode');
-            if(sidebarcolorMode1===null){
-                props.SidebarColorAction(props.sidebarcolorMode);
+    useEffect(() => {
+      Scrollbar.init(document.querySelector("#my-scrollbar"));
+  
+      window.addEventListener("resize", () => {
+        const tabs = document.querySelectorAll(".nav");
+        const sidebarResponsive = document.querySelector(
+          '[data-sidebar="responsive"]'
+        );
+        if (window.innerWidth < 1025) {
+          Array.from(tabs, (elem) => {
+            if (
+              !elem.classList.contains("flex-column") &&
+              elem.classList.contains("nav-tabs") &&
+              elem.classList.contains("nav-pills")
+            ) {
+              elem.classList.add("flex-column", "on-resize");
             }
-            else{
-                props.SidebarColorAction(sidebarcolorMode1);
+            return elem.classList.add("flex-column", "on-resize");
+          });
+          if (sidebarResponsive !== null) {
+            if (!sidebarResponsive.classList.contains("sidebar-mini")) {
+              sidebarResponsive.classList.add("sidebar-mini", "on-resize");
             }
-
-            // sidebarstylemode
-            const sidebarstyleMode = sessionStorage.getItem('sidebarstyle-mode');
-            if(sidebarstyleMode===null){
-                props.SidebarActiveStyleAction(props.sidebaractivestyleMode);
+          }
+        } else {
+          Array.from(tabs, (elem) => {
+            if (elem.classList.contains("on-resize")) {
+              elem.classList.remove("flex-column", "on-resize");
             }
-            else{
-                props.SidebarActiveStyleAction(sidebarstyleMode);
+            return elem.classList.remove("flex-column", "on-resize");
+          });
+          if (sidebarResponsive !== null) {
+            if (
+              sidebarResponsive.classList.contains("sidebar-mini") &&
+              sidebarResponsive.classList.contains("on-resize")
+            ) {
+              sidebarResponsive.classList.remove("sidebar-mini", "on-resize");
             }
-            Scrollbar.init(document.querySelector('#my-scrollbar'))
+          }
         }
-        
-         
-    
-    )
-    const minisidebar =() =>{
-        document.getElementsByTagName('ASIDE')[0].classList.toggle('sidebar-mini')
-    }
+      });
+    }); 
     
     
 
     return (
-        <>
-            <aside className="sidebar sidebar-default navs-rounded-all {{ sidebarVariants }}">
-                <div className="sidebar-header d-flex align-items-center justify-content-start">
-                    <Link to="/dashboard" className="navbar-brand">
-                        <svg width="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="-0.757324" y="19.2427" width="28" height="4" rx="2" transform="rotate(-45 -0.757324 19.2427)" fill="currentColor"/>
-                            <rect x="7.72803" y="27.728" width="28" height="4" rx="2" transform="rotate(-45 7.72803 27.728)" fill="currentColor"/>
-                            <rect x="10.5366" y="16.3945" width="16" height="4" rx="2" transform="rotate(45 10.5366 16.3945)" fill="currentColor"/>
-                            <rect x="10.5562" y="-0.556152" width="28" height="4" rx="2" transform="rotate(45 10.5562 -0.556152)" fill="currentColor"/>
-                        </svg>
-                        <h4 className="logo-title">Hope UI</h4>
-                    </Link>
-                    <div className="sidebar-toggle" data-toggle="sidebar" data-active="true" onClick={minisidebar} >
-                        <i className="icon">
-                            <svg width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.25 12.2744L19.25 12.2744" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-                                <path d="M10.2998 18.2988L4.2498 12.2748L10.2998 6.24976" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-                            </svg>
-                        </i>
-                    </div>
-                </div>
-                <div className="pt-0 sidebar-body data-scrollbar" data-scroll="1" id="my-scrollbar">
-                    {/* sidebar-list class to be added after replace css */}
-                    <div className="sidebar-list navbar-collapse" id="sidebar">
-                      <VerticalNav />
-                    </div>
-                </div>
-                <div className="sidebar-footer"></div>
-            </aside>
-        </>
+        <Fragment>
+        <aside
+        className={` ${sidebarColor} ${sidebarType.join( " " )} ${sidebarMenuStyle} ${sidebarHide.join( " " ) ? 'sidebar-none' : 'sidebar'}   sidebar-base  ` }
+        data-sidebar="responsive"
+      >
+        <div className="sidebar-header d-flex align-items-center justify-content-start">
+          <Link to="/dashboard" className="navbar-brand">
+            <Logo />
+            <h4 className="logo-title">{props.app_name}</h4>
+          </Link>
+          <div
+            className="sidebar-toggle"
+            data-toggle="sidebar"
+            data-active="true"
+            onClick={minisidebar}
+          >
+            <i className="icon">
+              <svg
+                width="20"
+                className="icon-20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4.25 12.2744L19.25 12.2744"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></path>
+                <path
+                  d="M10.2998 18.2988L4.2498 12.2748L10.2998 6.24976"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                ></path>
+              </svg>
+            </i>
+          </div>
+        </div>
+        <div
+          className="pt-0 sidebar-body data-scrollbar"
+          data-scroll="1"
+          id="my-scrollbar"
+        >
+          {/* sidebar-list class to be added after replace css */}
+          <div className="sidebar-list navbar-collapse" id="sidebar">
+            <VerticalNav />
+          </div>
+        </div>
+        <div className="sidebar-footer"></div>
+      </aside>
+        </Fragment>
     )
-}
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(Sidebar)
+export default Sidebar
 

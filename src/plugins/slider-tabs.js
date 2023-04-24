@@ -5,10 +5,10 @@ class SliderTab {
     }
   }
 
-  init (element = null, option = undefined) {
+  init(element = null, option = undefined) {
     this.option = option
     this.element = element;
-    this.slider = document.createElement('div') 
+    this.slider = document.createElement('div')
     this.sliderThumb = 'nav-slider-thumb'
     this.elemClass = 'nav-slider'
     const firstChild = this.element.querySelector('.nav-item:first-child .nav-link');
@@ -24,18 +24,18 @@ class SliderTab {
     this.updateinrtl()
   }
 
-  addListener () {
+  addListener() {
     this.element.addEventListener("mousemove", this.mouseOver)
   }
 
-  resetSlider () {
+  resetSlider() {
     this.slider.style.padding = '0px';
     this.slider.style.width = this.element.querySelector('.nav-item:nth-child(1)').offsetWidth + 'px';
     this.slider.style.transform = 'translate3d(0px, 0px, 0px)';
     this.slider.style.transition = '300ms ease-in-out';
   }
 
-  mouseOver () {
+  mouseOver() {
     this.element.onmouseover = (event) => {
       const target = this.getEventTarget(event);
       const item = target.closest('.nav-item');
@@ -53,12 +53,12 @@ class SliderTab {
     }
   }
 
-  updateSlide (item, items, index) {
+  updateSlide(item, items, index) {
     this.slider = this.element.querySelector(`.${this.sliderThumb}`);
     const prevItem = this.element.querySelectorAll('.nav-item')
-    Array.from(prevItem,(elem) => {
+    Array.from(prevItem, (elem) => (
       elem.querySelector('.nav-link').classList.remove('active')
-    })
+    ))
     let sum = 0;
     if (this.element.classList.contains('flex-column')) {
       let j = 1
@@ -71,13 +71,13 @@ class SliderTab {
       this.slider.style.width = '100%'
     } else {
       let j = 1
-      for (j ; j <= items.indexOf(item); j++) {
+      for (j; j <= items.indexOf(item); j++) {
         sum += this.element.querySelector('.nav-item:nth-child(' + j + ')').offsetWidth;
       }
-      if(document.querySelector('html').getAttribute('dir') === 'rtl'){
+      if (document.querySelector('html').getAttribute('dir') === 'rtl') {
         this.slider.style.transform = 'translate3d(-' + sum + 'px, 0px, 0px)';
       }
-      else{
+      else {
         this.slider.style.transform = 'translate3d(' + sum + 'px, 0px, 0px)';
       }
       this.element.querySelector('.nav-item:nth-child(' + index + ')').querySelector('.nav-link').classList.add('active')
@@ -85,18 +85,18 @@ class SliderTab {
     }
   }
 
-  getEventTarget (event) {
+  getEventTarget(event) {
     event = event || window.event;
     return event.target || event.srcElement;
   }
 
-  destroy () {
+  destroy() {
     this.element.removeEventListener('mousemove', this.mouseOver)
     this.element.querySelector(`.${this.sliderThumb}`).remove()
     this.element.classList.remove(this.elemClass)
   }
 
-  resize () {
+  resize() {
     window.addEventListener('resize', (event) => {
       const target = this.element.querySelector('.active');
       const item = target.closest('.nav-item');
@@ -105,15 +105,15 @@ class SliderTab {
       this.updateSlide(item, items, index)
     })
   }
-  updateinrtl () {
-      document.addEventListener('theme_scheme_direction',(e) => {
-        console.log(e)
-        const target = this.element.querySelector('.active');
-        const item = target.closest('.nav-item');
-        const items = Array.from(this.element.children);
-        const index = items.indexOf(item) + 1;
-        this.updateSlide(item, items, index)
-      })
+  updateinrtl() {
+    document.addEventListener('theme_scheme_direction', (e) => {
+      console.log(e)
+      const target = this.element.querySelector('.active');
+      const item = target.closest('.nav-item');
+      const items = Array.from(this.element.children);
+      const index = items.indexOf(item) + 1;
+      this.updateSlide(item, items, index)
+    })
   }
 }
 

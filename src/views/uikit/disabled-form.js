@@ -62,20 +62,20 @@ const DisabledForms =() =>{
                             <Tab.Pane eventKey="first" className={toggleState === true ? "content  active-content" : "content"} id="content-disabled-prv" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="bd-example">
                                     <Form>
-                                        <fieldset disabled="" aria-label="Disabled fieldset example">
+                                        <fieldset disabled aria-label="Disabled fieldset example">
                                             <div className="mb-3">
                                                 <Form.Label htmlFor="disabledTextInput" className="">Disabled input</Form.Label>
-                                                <Form.Control type="text" id="disabledTextInput" className="" placeholder="Disabled input"/>
+                                                <Form.Control type="text" id="disabledTextInput" className="" placeholder="Disabled input" disabled/>
                                             </div>
                                             <div className="mb-3">
                                                 <Form.Label htmlFor="disabledSelect" className="">Disabled select menu</Form.Label>
-                                                <Form.Select id="disabledSelect" className="">
+                                                <Form.Select id="disabledSelect" className="" disabled>
                                                     <option>Disabled select</option>
                                                 </Form.Select>
                                             </div>
                                             <div className="mb-3">
                                                 <Form.Check className="">
-                                                    <FormCheck.Input className="me-1" type="checkbox" id="disabledFieldsetCheck" disabled=""/>
+                                                    <FormCheck.Input className="me-1" type="checkbox" id="disabledFieldsetCheck" disabled/>
                                                     <FormCheck.Label className="" htmlFor="disabledFieldsetCheck">
                                                     Can't check this
                                                     </FormCheck.Label>
@@ -84,20 +84,20 @@ const DisabledForms =() =>{
                                             <fieldset className="mb-3">
                                                 <legend>Disabled radios buttons</legend>
                                                 <Form.Check className="">
-                                                    <FormCheck.Input type="radio" name="radios" className="me-1" id="disabledRadio1" disabled=""/>
+                                                    <FormCheck.Input type="radio" name="radios" className="me-1" id="disabledRadio1" disabled/>
                                                     <FormCheck.Label className="" htmlFor="disabledRadio1">Disabled radio</FormCheck.Label>
                                                 </Form.Check>
                                                 <Form.Check className="mb-3 ">
-                                                    <FormCheck.Input type="radio" name="radios" className="me-1" id="disabledRadio2" disabled=""/>
+                                                    <FormCheck.Input type="radio" name="radios" className="me-1" id="disabledRadio2" disabled/>
                                                     <FormCheck.Label className="" htmlFor="disabledRadio2">Another radio</FormCheck.Label>
                                                 </Form.Check>
                                             </fieldset>
                                             <div className="mb-3">
                                                 <Form.Label className="" htmlFor="disabledCustomFile">Upload</Form.Label>
-                                                <Form.Control type="file" className="" id="disabledCustomFile" disabled=""/>
+                                                <Form.Control type="file" className="" id="disabledCustomFile" disabled/>
                                             </div>
                                             <Form.Check className="mb-3  form-switch">
-                                                <FormCheck.Input className="me-1" type="checkbox" id="disabledSwitchCheckChecked" defaultChecked disabled=""/>
+                                                <FormCheck.Input className="me-1" type="checkbox" id="disabledSwitchCheckChecked" defaultChecked disabled/>
                                                 <FormCheck.Label className="" htmlFor="disabledSwitchCheckChecked">Disabled checked switch checkbox input</FormCheck.Label>
                                             </Form.Check>
                                             <div className="mb-3">
@@ -111,7 +111,7 @@ const DisabledForms =() =>{
                             </Tab.Pane>
                             <Tab.Pane eventKey="second" className={toggleState === false ? "content  active-content" : "content"} id="content-disabled-code" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="section-block">
-<pre><code className="language-markup">
+<pre className="language-markup"><code className="language-markup">
 {`<div className="bd-example">
     <Form>
         <fieldset disabled="" aria-label="Disabled fieldset example">

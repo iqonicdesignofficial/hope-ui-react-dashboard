@@ -1,117 +1,80 @@
-import React, {useEffect}  from 'react'
+import {memo,Fragment}  from 'react'
 import {Row,Col} from 'react-bootstrap'
 import Card from '../../../components/Card'
 import Chart from "react-apexcharts"
-import {bindActionCreators} from "redux"
 
 // import CounterUps from '../../../components/counterup'
 import CountUp from 'react-countup';
-// store
-import {NavbarstyleAction, getDirMode, getcustomizerMode, getcustomizerprimaryMode,  getcustomizerinfoMode,  SchemeDirAction, ColorCustomizerAction,  getNavbarStyleMode, getSidebarActiveMode, SidebarActiveStyleAction, getDarkMode, ModeAction,  SidebarColorAction, getSidebarColorMode,  getSidebarTypeMode} from '../../../store/setting/setting'
-import {connect} from "react-redux"
 
-const mapStateToProps = (state) => {
-   return {
-       darkMode: getDarkMode(state),
-       customizerMode: getcustomizerMode(state),
-       cololrinfomode: getcustomizerinfoMode(state),
-       colorprimarymode: getcustomizerprimaryMode(state),
-       schemeDirMode: getDirMode(state),
-       sidebarcolorMode: getSidebarColorMode(state),
-       sidebarTypeMode: getSidebarTypeMode(state),
-       sidebaractivestyleMode: getSidebarActiveMode(state),
-       navbarstylemode: getNavbarStyleMode(state),
-   };
-}
-const mapDispatchToProps = dispatch => ({
-   ...bindActionCreators(
-       {
-           ModeAction,
-           SchemeDirAction,
-           SidebarColorAction,
-           SidebarActiveStyleAction,
-           NavbarstyleAction,
-           ColorCustomizerAction,
-       },
-       dispatch
-   )
-})
-
-
-
-const Widgetchart = (props) => {
-   useEffect(() => {
-   //   customizer
-   const colorcustomizerMode = sessionStorage.getItem('color-customizer-mode');
-   const colorcustomizerinfoMode = sessionStorage.getItem('colorcustominfo-mode');
-   const colorcustomizerprimaryMode = sessionStorage.getItem('colorcustomprimary-mode');
-   if(colorcustomizerMode !== null && colorcustomizerMode !== undefined){
-       props.ColorCustomizerAction(colorcustomizerMode, colorcustomizerinfoMode, colorcustomizerprimaryMode);
-       document.documentElement.style.setProperty('--bs-info', colorcustomizerinfoMode);
-       
-      
-   }
-   else{
-      props.ColorCustomizerAction(props.customizerMode, props.cololrinfomode, props.colorprimarymode);
-       document.documentElement.style.setProperty('--bs-info', props.cololrinfomode );
-   }
-})
-   
+const Widgetchart = memo((props) => {
+  
    const chart1 ={
          options : {
          chart: {
-            id: "extrachart",
-         sparkline:{
-            enabled:true
-         },
-         },
-         plotOptions: {
-         bar: {
-            horizontal: false,
-            columnWidth: '55%',
-            borderRadius: 5,
-         },
-         },
-         dataLabels: {
-         enabled: false
-         },
-         stroke: {
-         show: true,
-         width: 2,
-         curve: 'smooth',
-         colors: ['transparent']
-         },
-         xaxis: {
-         categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
-         },
-         yaxis: {
-         title: {
-            text: '$ (thousands)'
-         }
-         },
-         fill: {
-         opacity: 1,
-         colors:[props.colorprimarymode, '#b91d12', '#d48918']
-         },
-         tooltip: {
-         y: {
-            formatter: function (val) {
-               return "$ " + val + " thousands"
-            },
-            
-         }
-         }
+        sparkline: {
+          enabled: true,
+        },
       },
-      series: [{
-         name: 'Net Profit',
-         data: [44, 55, 57, 56, 61, 58]
-      }, {
-         name: 'Revenue',
-         data: [76, 85, 101, 98, 87, 105]
-      }, {
-         name: 'Free Cash Flow',
-         data: [35, 41, 36, 26, 45, 48]
-      }]
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          columnWidth: "50%",
+          borderRadius: 5,
+        },
+      },
+      dataLabels: {
+        enabled: false,
+      },
+      stroke: {
+        show: true,
+        width: 2,
+        curve: "smooth",
+        colors: ["transparent"],
+      },
+      xaxis: {
+        categories: [
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+        ],
+      },
+      // yaxis: {
+      //   title: {
+      //     text: "$ (thousands)",
+      //   },
+      // },
+      fill: {
+        opacity: 1,
+        colors: ["#344ED1", "#B91D12","#D48918"],
+      },
+      tooltip: {
+        y: {
+          formatter: function (val) {
+            return "$ " + val + " thousands";
+          },
+        },
+      },
+      },
+      series: [
+        {
+          name: "Net Profit",
+          data: [44, 55, 57, 56, 61, 58],
+        },
+        {
+          name: "Revenue",
+          data: [76, 85, 101, 98, 87, 105],
+        },
+        {
+         name: "Free Cash Flow",
+         data : [24,20,15,23,25,30]
+        }
+      ],
    }
    const chart2 ={
          options : {
@@ -159,7 +122,7 @@ const Widgetchart = (props) => {
          }
       const chart3 ={ 
          options : {
-            colors: [props.colorprimarymode],
+            colors: ["#344ed1"],
             chart: {
                
                sparkline: {
@@ -244,8 +207,6 @@ const Widgetchart = (props) => {
       options : {
          colors: ['#b91d12'],
          chart: {
-            //  id: "chart-4",
-             
              sparkline: {
                  enabled: true
              },
@@ -286,10 +247,8 @@ const Widgetchart = (props) => {
 
    const iqchartbox1 ={
       options : {
-         
-         colors: [props.colorprimarymode],
-         chart: {
-         id: "iq-chart-1",   
+         colors: ["#344ed1"],
+         chart: {   
          sparkline: {
              enabled: true,
          },
@@ -322,10 +281,8 @@ const Widgetchart = (props) => {
    }
    const iqchartbox2={
       options : {
-         
          colors: ["#b91d12"],
-         chart: {
-         id: "iq-chart-2",   
+         chart: {   
          sparkline: {
              enabled: true,
          },
@@ -359,10 +316,8 @@ const Widgetchart = (props) => {
    }
    const iqchartbox3 ={
       options : {
-         
          colors: ["#07750b"],
          chart: {
-         id: "iq-chart-3",
          sparkline: {
              enabled: true,
          },
@@ -396,10 +351,8 @@ const Widgetchart = (props) => {
    }
    const iqchartbox4 ={
       options : {
-         
          colors: ["#d48918"],
          chart: {
-         id: "iq-chart-4",
          sparkline: {
              enabled: true,
          },
@@ -433,9 +386,8 @@ const Widgetchart = (props) => {
 
    const servicechart1={
       options : {
-       colors: [props.colorprimarymode],
+       colors: ["#344ed1"],
          chart: {
-         id: "service-chart-1",
          sparkline: {
                enabled: true,
            }
@@ -463,7 +415,6 @@ const Widgetchart = (props) => {
       options : {
        colors: ["#b91d12"],
          chart: {
-         id: "service-chart-2",
          sparkline: {
                enabled: true,
            }
@@ -492,7 +443,6 @@ const Widgetchart = (props) => {
       options : {
        colors: ["#d48918"],
          chart: {
-         id: "service-chart-3",
          sparkline: {
                enabled: true,
            }
@@ -520,7 +470,6 @@ const Widgetchart = (props) => {
       options : {
        colors: ["#07750b"],
          chart: {
-         id: "service-chart-4",
          sparkline: {
                enabled: true,
            }
@@ -547,15 +496,15 @@ const Widgetchart = (props) => {
 
    const ethernetchart1={
       options : {
-       colors: [props.colorprimarymode],
+       colors: ["#3a57e8"],
          chart: {
-         id: "ethernet-chart-1",
          zoom: {
            enabled: false
          },
          sparkline: {
            enabled: true,
-         }
+         },
+         
        },
        dataLabels: {
          enabled: false
@@ -575,18 +524,18 @@ const Widgetchart = (props) => {
          enabled: false,
        }
        },
-       series: [{
-         name: "Desktops",
-         data: [5, 30, 6, 20, 5, 18, 10]
-     }]
+       series: [
+         {
+           name: "Desktops",
+           data: [5, 30, 6, 20, 5, 18],
+         },
+       ],
      
    }
    const ethernetchart2={
       options : {
-         
        colors: ['#07750b'],
          chart: {
-         id: "ethernet-chart-2",
          zoom: {
            enabled: false
          },
@@ -612,16 +561,19 @@ const Widgetchart = (props) => {
          enabled: false,
        }
        },
-       series: [{
-         name: "Desktops",
-         data: [5, 20, 4, 18, 3, 15, 10]
-     }]
+
+     series: [
+      {
+        name: "Desktops",
+        data: [5, 20, 4, 18, 3, 15],
+      },
+    ],
+   
    }
    const ethernetchart3={
       options : {
        colors: ['#b91d12'],
          chart: {
-         id: "ethernet-chart-3",
          zoom: {
            enabled: false
          },
@@ -647,18 +599,19 @@ const Widgetchart = (props) => {
          enabled: false,
        }
        },
-       series: [{
-         name: "Desktops",
-         data: [5, 20, 6, 18, 5, 15, 4]
-     }]
+   series: [
+      {
+        name: "Desktops",
+        data: [5, 20, 4, 18, 3, 15],
+      },
+    ],
+
       
    }
    const ethernetchart4={
       options : {
-        
        colors: ['#d48918'],
          chart: {
-         id: "ethernet-chart-4",
          zoom: {
            enabled: false
          },
@@ -686,17 +639,15 @@ const Widgetchart = (props) => {
        },
        series: [{
          name: "Desktops",
-         data: [5, 15, 3, 20, 5, 18, 13]
+         data: [5, 15, 3, 20, 5, 13]
      }]
      
    }
 
    const chart9 ={
       options : {
-        
        colors: ["#07750b"],
          chart: {
-         id: "chart-9",
          sparkline: {
                enabled: true,
            }
@@ -723,7 +674,7 @@ const Widgetchart = (props) => {
    }
      
    return (
-      <>
+      <Fragment>
          <Row>
             <Col lg="3">
                <Card>
@@ -1145,7 +1096,7 @@ const Widgetchart = (props) => {
                            <h2>2.14s</h2>
                            <p>Frontend time</p>
                         </div>
-                        <Chart  options={ethernetchart1.options} series={ethernetchart1.series} type="line" width="100"   height="60"  />
+                        <Chart  options={ethernetchart1.options} series={ethernetchart1.series} type="line"  height="60"  />
                      </Card.Body>
                   </Card>
                </Col>
@@ -1163,7 +1114,7 @@ const Widgetchart = (props) => {
                            <h2>1.05s</h2>
                            <p>Backend time</p>
                         </div>
-                        <Chart  options={ethernetchart2.options} series={ethernetchart2.series} type="line" width="100"   height="60"  />
+                        <Chart  options={ethernetchart2.options} series={ethernetchart2.series} type="line"  height="60"  />
                      </Card.Body>
                   </Card>
                </Col>
@@ -1181,7 +1132,7 @@ const Widgetchart = (props) => {
                            <h2>0.25s</h2>
                            <p>Local time</p>
                         </div>
-                        <Chart  options={ethernetchart3.options} series={ethernetchart3.series} type="line" width="100"   height="60"  />
+                        <Chart  options={ethernetchart3.options} series={ethernetchart3.series} type="line"   height="60"  />
                      </Card.Body>
                   </Card>
                </Col>
@@ -1199,7 +1150,7 @@ const Widgetchart = (props) => {
                            <h2>3.07s</h2>
                            <p>Processing time</p>
                         </div>
-                        <Chart  options={ethernetchart4.options} series={ethernetchart4.series} type="line" width="100"   height="60"  />
+                        <Chart  options={ethernetchart4.options} series={ethernetchart4.series} type="line"  height="60"  />
                      </Card.Body>
                   </Card>
                </Col>
@@ -1338,8 +1289,10 @@ const Widgetchart = (props) => {
                   </Card>
                </Col>
             </Row>
-      </>
+      </Fragment>
    )
 }
+)
 
-export default connect(mapStateToProps, mapDispatchToProps)(Widgetchart)
+Widgetchart.displayName="Widgetchart"
+export default Widgetchart

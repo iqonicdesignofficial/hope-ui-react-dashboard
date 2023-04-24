@@ -13,15 +13,15 @@ const HeaderStyle4 = () => {
                         <Logo color={true} />
                         <h4 className="logo-title text-light ms-3 mb-0">Hope UI</h4>
                     </Link>
-                    <Navbar.Toggle className="p-0 border-0"  aria-controls="navbarSideCollapse" >
+                    <Navbar.Toggle className="p-0 border-0"  aria-controls="navbarSideCollapse" aria-label="Toggle navigation" >
                         <span className="navbar-toggler-icon">
                             <span className="navbar-toggler-bar bar1 mt-2"></span>
                             <span className="navbar-toggler-bar bar2"></span>
                             <span className="navbar-toggler-bar bar3"></span>
                         </span>
                     </Navbar.Toggle>
-                    <Navbar.Collapse className="offcanvas-collapse" >
-                        <Nav as="ul" className=" me-auto mb-2 mb-lg-0">
+                    <Navbar.Collapse className="navbar-collapse offcanvas-collapse open" >
+                        <Nav as="ul" className=" navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
                             <Nav.Item as="li">
                                 <Nav.Link  active aria-current="page" href="#">Dashboard</Nav.Link>
                             </Nav.Item>
@@ -31,9 +31,7 @@ const HeaderStyle4 = () => {
                             <Nav.Item as="li">
                                 <Nav.Link  href="#">Profile</Nav.Link>
                             </Nav.Item>
-                            <Nav.Item as="li">
-                                <Nav.Link  href="#">Switch account</Nav.Link>
-                            </Nav.Item>
+                   
                             <NavDropdown title="Settings" id="basic-nav-dropdown">
                                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>

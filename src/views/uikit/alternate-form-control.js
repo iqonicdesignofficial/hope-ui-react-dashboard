@@ -61,34 +61,48 @@ const AFormControls =() =>{
                         <Tab.Content className="">
                             <Tab.Pane eventKey="first" className={toggleState === true ? "content  active-content" : "content"} id="content-alternet-prv" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="bd-example">
-                                    <Form.Group className=" form-group-alt">
-                                        <Form.Control type="text" className="" placeholder="Enter Text"/>
-                                    </Form.Group>
-                                    <Form.Group className=" input-group form-group-alt">
-                                        <span className="input-group-text" id="basic-addon1">@</span>
-                                        <Form.Control type="text" className="" placeholder="Addon" aria-label="Username" aria-describedby="basic-addon1"/>
-                                    </Form.Group>
-                                    <Form.Group className=" input-group form-group-alt">
-                                        <Form.Control type="text" className="" placeholder="Addon" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
-                                        <span className="input-group-text" id="basic-addon2">@</span>
-                                    </Form.Group>
-                                    <Form.Group className=" form-group-alt">
+                                <div className='mb-3'>
+                                <Form.Group className=" form-group">
+                                    <Form.Control type="text" className="" placeholder="Enter Text"/>
+                                </Form.Group>
+                                </div>
+                                <div className='mb-3'>
+                                <Form.Group className=" input-group  form-group-alt">
+                                    <span className="input-group-text" id="basic-addon1">@</span>
+                                    <Form.Control type="text" className="" placeholder="Addon" aria-label="Username" aria-describedby="basic-addon1"/>
+                                </Form.Group>
+                                </div>
+                                <div className='mb-3'>
+                                <Form.Group className=" input-group form-group-alt">
+                                    <Form.Control type="text" className="" placeholder="Addon" aria-label="Recipient's username" aria-describedby="basic-addon2"/>
+                                    <span className="input-group-text" id="basic-addon2">@</span>
+                                </Form.Group>
+                                </div>
+                                    <div className='mb-3'>
+                                    <Form.Group className=" form-group-alt pb-2">
                                         <Form.Control type="text" className=" is-valid" placeholder="Enter Text"/>
                                     </Form.Group>
-                                    <Form.Group className=" form-group-alt">
+                                    </div>
+                                    <div className='mb-3'>
+                                    <Form.Group className=" form-group-alt pb-2">
                                         <Form.Control type="text" className=" is-invalid" placeholder="Enter Text"/>
                                     </Form.Group>
-                                    <Form.Group className="">
+                                    </div>
+                                    <div className='mb-3'>
+                                    <Form.Group className=''>
                                         <Form.Control type="text" className=" is-valid" placeholder="Enter Text"/>
                                     </Form.Group>
+                                    </div>
+                                    <div className='mb-3'>
                                     <Form.Group className="">
                                         <Form.Control type="text" className=" is-invalid" placeholder="Enter Text"/>
                                     </Form.Group>
+                                    </div>
                                 </div>
                             </Tab.Pane>
                             <Tab.Pane eventKey="second" className={toggleState === false ? "content  active-content" : "content"} id="content-alternet-code" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="section-block">
-<pre><code className="language-markup"> {`<div className="bd-example">
+<pre className="language-markup"><code className="language-markup"> {`<div className="bd-example">
     <Form.Group className=" form-group-alt">
         <Form.Control type="text" className="" placeholder="Enter Text"/>
     </Form.Group>

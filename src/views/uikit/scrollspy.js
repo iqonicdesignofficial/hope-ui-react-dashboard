@@ -103,7 +103,7 @@ const Scrollspys =() =>{
                             </Tab.Pane>
                             <Tab.Pane eventKey="second" className={toggleState === false ? "content  active-content" : "content"} id="content-Scrollspy-code" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="section-block">
-<pre><code className="language-markup">
+<pre className="language-markup"><code className="language-markup">
 {`<div className="bd-example">
     <Nav as='nav' id="navbar-example2" className="navbar navbar-light bg-light px-3" >
         <Navbar.Brand  href="#">Navbar</Navbar.Brand>

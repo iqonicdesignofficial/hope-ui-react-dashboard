@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Nav, Tab, ProgressBar,Button} from 'react-bootstrap'
+import { Nav, Tab, ProgressBar, Button} from 'react-bootstrap'
 import Card from '../../../src/components/Card'
 
 const Progresss =() =>{
@@ -76,7 +76,7 @@ const Progresss =() =>{
                                     <div className="progress" style={{height:"10px"}}>
                                         <ProgressBar className="mb-3" now={75} animated striped variant="danger"  style={{width: "40%", height:"10px"}}/>
                                     </div>
-                                    <div className="wrapper-progress mt-4">
+                                    <div className="wrapper-progress mt-2">
                                         <div className="percentage-progress d-flex justify-content-end">
                                             <div><span>40%</span></div>
                                         </div>
@@ -84,7 +84,7 @@ const Progresss =() =>{
                                     <div className="progress"  style={{height:"10px"}}>
                                         <ProgressBar className="mb-3" now={75} animated striped variant="primary"  style={{width: "40%", height:"10px"}}/>
                                     </div>
-                                    <div className="wrapper-progress mt-4">
+                                    <div className="wrapper-progress mt-2">
                                         <div className="percentage-progress d-flex justify-content-end">
                                             <div><span>40%</span></div>
                                         </div>
@@ -94,7 +94,7 @@ const Progresss =() =>{
                                     </div>
                                 </div>
 
-                                <div className="bd-example">
+                                <div className="bd-example mt-2">
                                 <ProgressBar>
                                     <ProgressBar  now={30} animated striped />
                                     <ProgressBar variant="success" now={40} animated striped />
@@ -103,7 +103,7 @@ const Progresss =() =>{
                             </Tab.Pane>
                             <Tab.Pane eventKey="second" className={toggleState === false ? "content  active-content" : "content"} id="content-progress-code" role="tabpanel" aria-labelledby="typo-output">
                                 <div className="section-block">
-<pre><code className="language-markup">
+<pre className="language-markup"><code className="language-markup">
 {`<div className="bd-example">
     <ProgressBar className="mb-3" now={5} label={'5%'}/>
     <ProgressBar className="mb-3 w-100" now={25} label={'25%'} variant="success" />
