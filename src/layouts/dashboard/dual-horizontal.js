@@ -1,7 +1,9 @@
 import React from 'react'
 
 import { Button } from 'react-bootstrap'
-    
+  
+//react-bootstrap
+import { Link } from "react-router-dom";
 
 //header
 import HeaderStyle3 from '../../components/partials/dashboard/HeaderStyle/header-style-3'
@@ -36,6 +38,9 @@ const DualHorizontal = memo((props) => {
                 <Footer />
             </main>   
             <SettingOffCanvas/>
+            <Link className="btn btn-fixed-end btn-secondary btn-icon btn-dashboard" to="/landing-modules/home" target="_blank" >
+                Landing Pages
+            </Link>
         </Fragment>
     )
 })

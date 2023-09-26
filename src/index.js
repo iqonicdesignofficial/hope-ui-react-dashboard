@@ -12,6 +12,7 @@ import { store } from "./store";
 
 import Index from "./views/index";
 import { IndexRouters } from "./router";
+import {LandingModulesRouter} from './router/landing-modules-router'
 import { SimpleRouter } from "./router/simple-router";
 import { DefaultRouter } from "./router/default-router";
 
@@ -22,7 +23,8 @@ const router = createBrowserRouter([
   },
   ...DefaultRouter,
   ...IndexRouters,
-  ...SimpleRouter
+  ...SimpleRouter,
+  ...LandingModulesRouter
 ] ,{basename: process.env.PUBLIC_URL });
 
 ReactDOM.createRoot(document.getElementById("root")).render(

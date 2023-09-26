@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { Button } from 'react-bootstrap'
 
+//react-bootstrap
+import { Link } from "react-router-dom";
 
 //HorizontalMulti2Router
 import HorizontalMulti2Router from '../../router/horizontal-multi-2-router'
@@ -45,6 +47,9 @@ const DualCompact = memo((props) => {
         <Footer />
       </main>
       <SettingOffCanvas/>
+      <Link className="btn btn-fixed-end btn-secondary btn-icon btn-dashboard" to="/landing-modules/home" target="_blank" >
+         Landing Pages
+      </Link>
     </Fragment>
   )
 })

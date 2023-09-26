@@ -45,14 +45,14 @@
       color: var(--#{$prefix}btn-hover-color);
       text-decoration: if($link-hover-decoration ==underline, none, null);
       background-color: var(--#{$prefix}btn-hover-bg);
-    //   border-color: var(--#{$prefix}btn-hover-border-color);
+      border-color: var(--#{$prefix}btn-hover-border-color);
   }
 
   .btn-check:focus+&,
   &:focus {
       color: var(--#{$prefix}btn-hover-color);
       @include gradient-bg(var(--#{$prefix}btn-hover-bg));
-    //   border-color: var(--#{$prefix}btn-hover-border-color);
+      border-color: var(--#{$prefix}btn-hover-border-color);
       outline: 0;
 
       // Avoid using mixin so we can pass custom focus shadow properly
@@ -75,7 +75,7 @@
       background-color: var(--#{$prefix}btn-active-bg);
       // Remove CSS gradients if they're enabled
       background-image: if($enable-gradients, none, null);
-    //   border-color: var(--#{$prefix}btn-active-border-color);
+      border-color: var(--#{$prefix}btn-active-border-color);
       @include box-shadow(var(--#{$prefix}btn-active-shadow));
 
       &:focus {

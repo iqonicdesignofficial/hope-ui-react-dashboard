@@ -2,6 +2,9 @@ import {Fragment, memo, useEffect} from 'react'
 // import {bindActionCreators} from "redux"
 import { Button } from 'react-bootstrap'
 
+//react-bootstrap
+import { Link } from "react-router-dom";
+
 //BoxedRouter
 import BoxedRouter from '../../router/boxed-router'
 
@@ -47,6 +50,9 @@ const Boxed = memo((props) => {
             </main>
         </div>
         <SettingOffCanvas/>
+        <Link className="btn btn-fixed-end btn-secondary btn-icon btn-dashboard" to="/landing-modules/home" target="_blank" >
+            Landing Pages
+        </Link>
         </Fragment>
     )
 })

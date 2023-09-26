@@ -77,6 +77,9 @@ const Default = memo((props) => {
         <Footer />
       </main>
       <SettingOffCanvas />
+      <Link className="btn btn-fixed-end btn-secondary btn-icon btn-dashboard" to="/landing-modules/home" target="_blank" >
+       Landing Pages
+      </Link>
     </Fragment>
   );
 });
